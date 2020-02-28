@@ -1,0 +1,38 @@
+#info {
+	border-radius: 3%;
+	position: absolute;
+    float: left;
+    padding: 10px;
+    height: 150px;
+    border: 1px solid;
+    width: 300px;
+    top: 115px;
+    margin-left: 10px;
+
+}
+
+#description {
+	border-radius: 3%;
+	position: absolute;
+    float: left;
+    padding: 10px;
+    top: 300px;
+    border: 1px solid;
+    width: 300px;
+    height: 515px;
+    margin-left: 10px;
+
+}
+
+#poke-list {
+	border-radius: 3%;
+	position: absolute;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid;
+    top: 115px;
+    left: 330px;
+    width: 650px;
+    height: 700px;
+
+}
