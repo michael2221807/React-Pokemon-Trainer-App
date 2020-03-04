@@ -27,11 +27,11 @@ class Nav2 extends React.Component {
       <nav className="nav">
       	<ul>
       		<li>
-      			<div id="logo-wrapper" >
+      			<div id="logo-wrapper2" >
 		        	<img src={require("./poke.png")} />
 		        </div>
       		</li>
-	      	<li><a href="./../Home">Home</a></li>
+	      	<li><a href="./../">Logout</a></li>
 	      	<li><a>Trainer: {name}</a></li>
 	      	<li><a>Balance: {money}</a></li>
           <li><a href="./../Profile">Profile</a></li>

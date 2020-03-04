@@ -31,7 +31,7 @@ class Nav extends React.Component {
 		        	<img src={require("./poke.png")} />
 		        </div>
       		</li>
-	      	<li><a href="./../Home">Home</a></li>
+	      	<li><a href="./../">Home</a></li>
 	      	<li><a>Trainer: {name}</a></li>
 	      	<li><a>Balance: {money}</a></li>
           

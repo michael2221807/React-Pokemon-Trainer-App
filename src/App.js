@@ -7,11 +7,12 @@ import './App.css';
 
 // Importing the Queue and our simple Home Page
 import Login from './react-components/Login';
-import Home from './react-components/Home';
 import Profile from './react-components/Profile';
 import Menu from './react-components/Menu';
 import PokemonPage from './react-components/PokemonPage';
 import Store from './react-components/Store';
+import Product from './react-components/Product';
+import UserManager from './react-components/UserManager';
 
 class App extends React.Component {
 
@@ -29,9 +30,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch> { /* Similar to a switch statement - shows the component depending on the URL path */ }
             { /* Each Route below shows a different component depending on the exact path in the URL  */ }
-            <Route exact path='/Home' render={() => 
-                            (<Home state={this.state}/>)}/>
-            <Route exact path='/Login' render={() => 
+            <Route exact path='/' render={() => 
                             (<Login state={this.state}/>)}/>
             <Route exact path='/Profile' render={() =>
                             (<Profile state={this.state}/>)}/>
@@ -41,7 +40,10 @@ class App extends React.Component {
                             (<PokemonPage state={this.state}/>)}/>
             <Route exact path='/Store' render={() =>
                             (<Store state={this.state}/>)}/>
-                            
+            <Route exact path='/Product' render={() =>
+                            (<Product state={this.state}/>)}/>
+            <Route exact path='/UserManager' render={() =>
+                            (<UserManager state={this.state}/>)}/>
 
           </Switch>
         </BrowserRouter>

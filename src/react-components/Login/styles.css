@@ -6,7 +6,7 @@
 #to-login {
 	position: relative;
 	margin-top: 20%;
-	margin-left: 15%;
+	margin-left: 40%;
 	float: left;
 
 }
@@ -21,6 +21,7 @@
     height: 70px;
     padding: 0 30px;
     boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+    font-size: 16px;
 
 }
 
@@ -45,11 +46,14 @@
 	position:absolute;
 	margin-top: 15%;
 	background: #eeeeee;
-	border-radius: 2%;
+	border-radius: .28571429rem;
+	border: 1px solid #d4d4d5;
 	padding: 60px;
 	display: inline-block;
-	margin-left: 12%;
-	box-shadow: 5px 5px 5px 1px grey;
+	margin-left: -15%;
+	box-shadow: 5px 5px 5px 1px #d4d4d580;
+	width: 320px;
+	height: 370px;
     
 }
 

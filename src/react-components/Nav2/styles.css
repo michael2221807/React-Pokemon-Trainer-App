@@ -1,49 +1,8 @@
-nav {
-	background-color:#1b262c;
-	display:flex;
-	margin-bottom:10px;
-}
 
-nav ul {
-	padding:0;
-	list-style-type:none;
-	flex:2;
-	
 
-}
-nav li {
-	display:inline;
-	text-align:center;
-	flex:1;
-}
-
-nav a {
+#logo-wrapper2 img{
 	background-color: #1b262c;
-	display: inline-block;
-	font-size: 2rem;
-	margin-left:10px;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: white;
-	transition-duration: 200ms;
-	padding: 0 10px;
-}
-
-
-nav a:hover {
-	color: #3282b8;
-	transition-duration: 200ms;
-}
-
-nav li div {
-	display:inline;
-	text-align:center;
-	flex:1;
-}
-
-#logo-wrapper img{
-	background-color: #1b262c;
-	width: 40px;
+	width: 60px;
 	height: 40px;
 	padding: 0 10px;
 }

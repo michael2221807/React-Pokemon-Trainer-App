@@ -15,8 +15,10 @@ import { Link } from "react-router-dom";
 
 import Nav from "./../Nav";
 import Nav2 from "./../Nav2";
+import Nav3 from "./../Nav3";
 import Profile from "./../Profile";
 import Input from "./../Input";
+import UserManager from "./../UserManager";
 
 import "./styles.css";
 
@@ -28,6 +30,7 @@ class Login extends React.Component {
     signup: false,
     nav1: true,
     nav2: false,
+    nav3: false,
 
     username: "",
     password: "",
@@ -35,7 +38,7 @@ class Login extends React.Component {
     users: [{ name: "user", 
               password: "user", 
               id: "0",
-              title: "Nagger",
+              title: "Newbee",
               money: 100,
               description: "",
               pokemon: [{ pokename: "Psyduck", 
@@ -53,7 +56,7 @@ class Login extends React.Component {
             { name: "user2", 
               password: "user2", 
               id: "1",
-              title: "IdealNagger",
+              title: "Newbee",
               money: 200,
               description: "",
               pokemon: [{ pokename: "Pikachu", 
@@ -122,6 +125,19 @@ class Login extends React.Component {
     const password = this.state.password
     const userlist = this.state.users
 
+    if (username === 'admin') {
+      if (password === 'admin') {
+        this.state.currentUser = [{name:'admin'}]
+        this.setState({
+          currentUser: this.state.currentUser,
+          signin: false,
+          nav1: false,
+          nav3: true
+        })
+
+      }
+    }
+
     userlist.map(u => {
       if (u.name === username) {
         if (u.password === password) {
@@ -177,9 +193,11 @@ class Login extends React.Component {
   render() {
 
     let style1 = this.state.signin ? {} : {display: 'none'}
-    let style2 = this.state.signup ? {} : {display: 'none'}
     let nav1 = this.state.nav1 ? {} : {display: 'none'}
+    let style2 = this.state.signup ? {} : {display: 'none'}
     let nav2 = this.state.nav2 ? {} : {display: 'none'}
+    let style3 = this.state.signin ? {} : {display: 'none'}
+    let nav3 = this.state.nav3 ? {} : {display: 'none'}
 
 
     return (
@@ -197,6 +215,12 @@ class Login extends React.Component {
           />
         </div>
 
+        <div id="nav-bar3" style={nav3}>
+          <Nav3
+            state={this.state}
+          />
+        </div>
+
         <div id="to-login">
           <Button
             id="to-login-button"
@@ -204,7 +228,7 @@ class Login extends React.Component {
             variant="contained"
             color="primary"
           >
-          To sign in
+          Click here to Login
           </Button>
         </div>
 
@@ -239,7 +263,7 @@ class Login extends React.Component {
                 onClick={this.verifyUser}
                 className="user-signin-button"
               >
-                Sign in
+                Login
               </Button>
 
               <Button

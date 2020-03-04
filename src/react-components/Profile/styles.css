@@ -3,11 +3,11 @@
 	position: absolute;
     float: left;
     padding: 10px;
-    height: 150px;
-    border: 1px solid;
+    height: auto;
+    border: 1px solid #d4d4d5;
     width: 300px;
-    top: 115px;
-    margin-left: 10px;
+    top: 150px;
+    margin-left: 40px;
 
 }
 
@@ -16,23 +16,36 @@
 	position: absolute;
     float: left;
     padding: 10px;
-    top: 300px;
-    border: 1px solid;
+    top: 400px;
+    border: 1px solid #d4d4d5;
     width: 300px;
-    height: 515px;
-    margin-left: 10px;
+    height: auto;
+    margin-left: 40px;
 
 }
 
-#poke-list {
-	border-radius: 3%;
-	position: absolute;
+
+.ui.table {
+    text-align:center;
+}
+
+#table-wrapper {
+    position: absolute;
+    top: 150px;
+    left: 21%;
+    width: 1000px;
+}
+
+#icon {
+    text-align:center;
+
+}
+
+.description {
+    text-align:left;
+}
+
+#user-list {
     padding: 10px;
-    margin-left: 10px;
-    border: 1px solid;
-    top: 115px;
-    left: 330px;
-    width: 650px;
-    height: 700px;
-
 }
+

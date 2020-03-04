@@ -16,7 +16,8 @@ import Profile from "./../Profile";
 
 import "./styles.css";
 import pika from "./Search_img.gif";
-import video from "./Clip.mkv";
+import ball from "./Profile_img.gif";
+import ads from "./ads_img.gif";
 
 class Menu extends React.Component {
   render() {
@@ -32,7 +33,7 @@ class Menu extends React.Component {
       users: [{ name: "user", 
                 password: "user", 
                 id: "0",
-                title: "Nagger",
+                title: "Newbee",
                 money: 100,
                 description: "",
                 pokemon: [{ pokename: "Psyduck", 
@@ -50,7 +51,7 @@ class Menu extends React.Component {
               { name: "user2", 
                 password: "user2",
                 id: "1",
-                title: "IdealNagger",
+                title: "Newbee",
                 money: 200,
                 description: "",
                 pokemon: [{ pokename: "Pikachu", 
@@ -69,7 +70,7 @@ class Menu extends React.Component {
                   name: "user", 
                     password: "user", 
                     id: "0",
-                    title: "Nagger",
+                    title: "Newbee",
                     money: 100,
                     description: "",
                     pokemon: [{ pokename: "Psyduck", 
@@ -93,25 +94,42 @@ class Menu extends React.Component {
         <Nav2 
           state={this.state}
         />
+        <div id='title-wrapper'>
+            <h5 id= "Inner_text">Explore the Pokemon World</h5>
+        </div>
 
         <div id="Function_displayer">
+
         	<div id= "Store">
-        		<div id= "Store_text"><a href="./../Store">POKE STORE</a></div>
+        		<div id= "Store_text">
+                    <a href="./../Store">POKE STORE</a>
+                </div>
         	</div>
+
         	<div id= "Video_ads">
-        		<div style={{display: 'none'}}>
-        			<embed id='ads' src={video}/>
-        		</div>
+                <div id = 'Ads_img'>
+                    <img id='Ads_img_gif' src={ads} />
+                </div>
         	</div>
+
         	<div id= "Profile">
-        		<div id= "Profile_text"><a href="./../Profile">GET TO YOUR COLLECTION</a></div>
+
+                <div id = 'Profile_img'><img id='Profile_img_gif' src={ball} /></div>
+        		<div id= "Profile_text">
+                    <a href="./../Profile">GET TO YOUR COLLECTION</a>
+                </div>
         	</div>
+
         	<div id= "Search">
-        		<div id = 'Search_img'><img id='Search_img_gif' src={pika} /></div>
+        		<div id = 'Search_img'>
+                    <img id='Search_img_gif' src={pika} />
+                </div>
+
         		<form id='TrainerSearch'>
 			 		<input id='UserName' type="text" placeholder="user name"/>
-			 		<input type="Submit" value="SEARCH"/>
+			 	    <input type="Submit" value="SEARCH"/>
 			 	</form>
+                
         	</div>
         </div>
 

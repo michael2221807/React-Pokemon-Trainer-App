@@ -23,7 +23,7 @@ class Store extends React.Component{
             users: [{ name: "user",
                 password: "user",
                 id: "0",
-                title: "Nagger",
+                title: "Newbee",
                 money: 100,
                 description: "",
                 pokemon: [{ pokename: "Psyduck",
@@ -41,7 +41,7 @@ class Store extends React.Component{
                 { name: "user2",
                     password: "user2",
                     id: "1",
-                    title: "IdealNagger",
+                    title: "Newbee",
                     money: 200,
                     description: "",
                     pokemon: [{ pokename: "Pikachu",
@@ -91,44 +91,48 @@ class Store extends React.Component{
             <div>
                 <Nav2 state={this.state}/>
 
-            <img id="ball" src={ball}></img>
-            <h5 className="inline-title">Featured Pokemon</h5>
-
-            <a href="./../Profile">
-            <div className="inline-picture">
-                <div >
-                    <div className="shape"><span id="New">New</span></div>
-                    <img className="div-picture" src={pikachu}></img>
-                </div>
-
-                <h5 className="nameTag">Pikachu</h5>
-                <h5 className="priceTag">$20</h5>
+            <div id="title-container">
+                <h5 className="inline-title">Featured Pokemon</h5>
             </div>
-            </a>
 
-            <a href="./../Profile">
-            <div className="inline-picture" >
-                <div>
-                    <div className="shape"><span id="New">New</span></div>
-                    <img className="div-picture" src={psyduck}></img>
+            <div id="store-container">
+                <a href="./../Product">
+                <div className="inline-picture">
+                    <div >
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={pikachu}></img>
+                    </div>
+
+                    <h5 className="nameTag">Pikachu</h5>
+                    <h5 className="priceTag">$20</h5>
                 </div>
+                </a>
 
-                <h5 className="nameTag">Psyduck</h5>
-                <h5 className="priceTag">$20</h5>
-            </div>
-            </a>
 
-            <a href="./../Profile">
-            <div className="inline-picture" >
-                <div>
-                    <div className="shape"><span id="New">New</span></div>
-                    <img className="div-picture" src={charmander}></img>
+                <a href="./../Product">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={psyduck}></img>
+                    </div>
+
+                    <h5 className="nameTag">Psyduck</h5>
+                    <h5 className="priceTag">$20</h5>
                 </div>
+                </a>
 
-                <h5 className="nameTag">Charmander</h5>
-                <h5 className="priceTag">$20</h5>
+                <a href="./../Product">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={charmander}></img>
+                    </div>
+
+                    <h5 className="nameTag">Charmander</h5>
+                    <h5 className="priceTag">$20</h5>
+                </div>
+                </a>
             </div>
-            </a>
 
 
 

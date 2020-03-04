@@ -1,0 +1,101 @@
+#App_Menu {
+	background-image: url(Pokemon_Menu_Background.jpg);
+	background-size:100% 100%;
+	height: 1000px;
+}
+
+#Function_displayer {
+	position: relative;
+    height: 70%;
+    width: 83%;
+    background: hsla(0,0%,100%,.0);
+    left: 0;
+    top: 6%;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+#Store{
+	background-image: url(Title.png);
+	background-size: 100% 100%;
+	position: absolute;
+	background-color: black;
+	margin: 1.66%;
+    width: 47.65%;
+    height: 45.55%;
+	float: left;
+}
+
+#Store_text{
+	position: absolute;
+	margin-bottom: 10px;
+	bottom: 0;
+	left: 39%;
+}
+#Profile_text{
+	position: absolute;
+	margin-bottom: 10px;
+	bottom: 0;
+	left: 24%;
+}
+
+#Store_text a{
+	font-size: 150%;
+	color: white;
+}
+
+#Profile_text a{
+	font-size: 150%;
+	color: white;
+}
+
+#Video_ads{
+	position: absolute;
+	background-color: black;
+	left: 49.35%;
+	margin: 1.66%;
+    width: 47.65%;
+    height: 45.55%;
+	float: right;
+}
+#Search{
+	position: absolute;
+	background-image: url(Search_Background.png);
+	background-size: 100% 100%;
+	left: 49.35%;
+	top: 48.6%;
+	margin: 1.66%;
+    width: 47.65%;
+    height: 45.55%;
+	float: right;
+}
+
+#TrainerSearch{
+	position: absolute;
+	margin-bottom: 10px;
+	bottom: 0;
+	left: 35%;
+}
+
+#Search_img{
+	position: absolute;
+	left: 12%;
+}
+
+#Search_img_gif{
+	width: 80%;
+	height:80%;
+}
+
+#Profile{
+	background-image: url(Pika.png);
+	background-size: 100% 100%;
+	position: absolute;
+	background-color: black;
+	top:48.6%;
+	margin: 1.66%;
+    width: 47.65%;
+    height: 45.55%;
+	float: left;
+}

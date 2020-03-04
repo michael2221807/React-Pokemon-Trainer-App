@@ -19,39 +19,17 @@ class Pokemon extends React.Component {
 		const {pokemon, queueComponent} = this.props;
 
 		return (
-			<TableRow className="student" key={pokemon.pokename}>
-				<TableCell component="th" scope="row">
-					{function(){
-						if (pokemon.pokename === "Psyduck"){
-							return <img src={Psyduck}/>
-						}
-						if (pokemon.pokename === "Pikachu"){
-							return <img src={Pikachu}/>
-						}
-					}()
+			<td>
+				{function(){
+					if (pokemon.pokename === "Psyduck"){
+						return <img src={Psyduck}/>
 					}
-				</TableCell>
-
-		        <TableCell component="th" scope="row">
-		          {pokemon.pokename}
-		        </TableCell>
-
-		        <TableCell component="th" scope="row">
-		          Level {pokemon.level}
-		        </TableCell>
-		    
-		        <TableCell component="th" scope="row">
-		          ID: {pokemon.pokeid}
-		        </TableCell>
-
-		        <TableCell component="th" scope="row">
-					<Link id="link-to-detail" to={"./../PokemonPage"}>
-			          	<Button id="detail-button">Detail </Button>
-			        </Link> 
-		          	
-		        </TableCell>
-
-		     </TableRow>
+					if (pokemon.pokename === "Pikachu"){
+						return <img src={Pikachu}/>
+					}
+				}()
+				}
+			</td>
 
 			);
 

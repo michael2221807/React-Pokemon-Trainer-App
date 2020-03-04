@@ -1,60 +1,67 @@
-.info-detail {
-	list-style-type: none;
-}
-
 #poke-name {
 	position: absolute;
-	width: 300px;
-	height: 25px;
+	background-color: #d4d4d529;
+	width: 310px;
+	height: 35px;
 	text-align: center;
 	top: 15%;
-	border: 2px solid;
-	/*border-radius: 5%;*/
-	margin-left: 10px;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 40px;
+}
+
+#poke-attributes {
+	position: absolute;
+	background-color: #d4d4d529;
+	width: 500px;
+	height: 35px;
+	text-align: center;
+	top: 15%;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 21%;
+}
+
+#poke-name strong {
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+#poke-attributes strong {
+	font-size: 16px;
+	vertical-align: middle;
 }
 
 #pokemon-window {
 	position: absolute;
-	width: 300px;
+	background-color: #d4d4d529;
+	width: 310px;
 	height: 500px;
 	text-align: center;
 	top: 20%;
-	border: 2px solid;
-	border-radius: 3%;
-	margin-left: 10px;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 40px;
+	
 }
-/*.poke-img {
-	position: absolute;
-	width: 300px;
-	height: 300px;
-	top: 21%;
-	left: 1%;
-}*/
 
 #poke-info {
 	position: absolute;
+	background-color: #d4d4d529;
 	width: 500px;
-	height: 280px;
-	border: 2px solid;
-	border-radius: 3%;
-	margin-left: 20%;
-	top: 15%;
+	height: auto;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 21%;
+	top: 20%;
 	text-align: center;
 }
 
-.info-detail {
-	position: relative;
-	text-align: center;
-	margin-top: 30px;
-	border-top: 1px solid grey;
-	margin-left: -9%;
-
-}
 
 #actions {
 	position: absolute;
-	top: 65%;
-	margin-left: 24.5%;
+	top: 55%;
+	margin-left: 25%;
 }
 
 #feed {
@@ -95,7 +102,16 @@
     boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
 
 }
+#pokeinfo-list {
+    padding: 20px;
+}
 
+.item {
+	position: relative;
+	margin-top: 5px;
+    margin-bottom: 5px;
+	
+}
 
 
 
