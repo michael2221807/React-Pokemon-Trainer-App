@@ -17,16 +17,34 @@ class UserList extends React.Component {
 		    	{users.map(user => (
 	                <tr>
 	                    <td>
-	                        <button className="ui red button">{user.name}</button>
+	                    	<div className="ui two buttons">
+                                <button className="ui yellow button">{user.name}</button>
+                                <button className="ui black button">Change</button>
+                            </div>
+	                        
+	                    </td>
+
+	                    <td>
+	                    	<div className="ui two buttons">
+                                <button className="ui yellow button">{user.id}</button>
+                                <button className="ui black button">Change</button>
+                            </div>
+	                        
+	                    </td>
+
+	                    <td>
+	                    	<div className="ui two buttons">
+                                <button className="ui yellow button">{user.title}</button>
+                                <button className="ui black button">Change</button>
+                            </div>
+	                        
 	                    </td>
 	                    <td>
-	                        <button className="ui black button">{user.id}</button>
-	                    </td>
-	                    <td>
-	                        <button className="ui black button">{user.title}</button>
-	                    </td>
-	                    <td>
-	                        <button className="ui black button">{user.money}</button>
+	                    	<div className="ui two buttons">
+                                <button className="ui yellow button">{user.money}</button>
+                                <button className="ui black button">Change</button>
+                            </div>
+	                       
 	                    </td>
 
 	                    <td>
@@ -34,6 +52,13 @@ class UserList extends React.Component {
 	                        	<button className="ui blue button">Profile</button>
 	                        </Link>
 	                    </td>
+
+	                    <td>
+                            <button className="ui red button">Remove</button>
+	                       
+	                    </td>
+
+
 	                </tr>
 
 		    		))}

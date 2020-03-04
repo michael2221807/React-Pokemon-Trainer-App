@@ -109,6 +109,7 @@ class AdminPage extends React.Component {
 		                        <th>Titles</th>
 		                        <th>Credit</th>
 		                        <th>Profile Portal</th>
+		                        <th>Delete User</th>
 		                    </tr>
 	                    </thead>
 
@@ -116,7 +117,7 @@ class AdminPage extends React.Component {
 
 	                    <tfoot>
 	                    <tr>
-	                        <th colspan="5">
+	                        <th colspan="6">
 	                            <div className="ui right floated pagination menu">
 	                                <a className="icon item">
 	                                    <i className="left chevron icon"></i>

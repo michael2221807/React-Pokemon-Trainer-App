@@ -31,6 +31,7 @@ class Login extends React.Component {
     nav1: true,
     nav2: false,
     nav3: false,
+    login: true,
 
     username: "",
     password: "",
@@ -97,7 +98,8 @@ class Login extends React.Component {
       event.preventDefault();
       if (this.state.signin === false) {
         this.setState({
-          signin: true
+          signin: true,
+          login: false
         })
       } else if (this.state.signin === true) {
         this.setState({
@@ -132,7 +134,8 @@ class Login extends React.Component {
           currentUser: this.state.currentUser,
           signin: false,
           nav1: false,
-          nav3: true
+          nav3: true,
+          login: false
         })
 
       }
@@ -149,7 +152,8 @@ class Login extends React.Component {
             currentUser: this.state.currentUser,
             signin: false,
             nav1: false,
-            nav2: true
+            nav2: true,
+            login: false
           })
           
           // console.log(user.state.currentUser)
@@ -198,6 +202,8 @@ class Login extends React.Component {
     let nav2 = this.state.nav2 ? {} : {display: 'none'}
     let style3 = this.state.signin ? {} : {display: 'none'}
     let nav3 = this.state.nav3 ? {} : {display: 'none'}
+    let style4 = this.state.login ? {} : {display: 'none'}
+    let login = this.state.login ? {} : {display: 'none'}
 
 
     return (
@@ -221,7 +227,7 @@ class Login extends React.Component {
           />
         </div>
 
-        <div id="to-login">
+        <div id="to-login" style={login}>
           <Button
             id="to-login-button"
             onClick={this.handleClick}
