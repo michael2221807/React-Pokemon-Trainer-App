@@ -4,7 +4,7 @@
 	width: 310px;
 	height: 35px;
 	text-align: center;
-	top: 15%;
+	top: 115px;
 	border: 1px solid #d4d4d5;
 	border-radius: .28571429rem;
 	margin-left: 40px;
@@ -16,10 +16,10 @@
 	width: 500px;
 	height: 35px;
 	text-align: center;
-	top: 15%;
+	top: 115px;
 	border: 1px solid #d4d4d5;
 	border-radius: .28571429rem;
-	margin-left: 21%;
+	margin-left: 380px;
 }
 
 #poke-name strong {
@@ -38,7 +38,7 @@
 	width: 310px;
 	height: 500px;
 	text-align: center;
-	top: 20%;
+	top: 155px;
 	border: 1px solid #d4d4d5;
 	border-radius: .28571429rem;
 	margin-left: 40px;
@@ -52,16 +52,16 @@
 	height: auto;
 	border: 1px solid #d4d4d5;
 	border-radius: .28571429rem;
-	margin-left: 21%;
-	top: 20%;
+	margin-left: 380px;
+	top: 155px;
 	text-align: center;
 }
 
 
 #actions {
 	position: absolute;
-	top: 55%;
-	margin-left: 25%;
+	top: 500px;
+	margin-left: 465px;
 }
 
 #feed {

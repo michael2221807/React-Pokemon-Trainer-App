@@ -5,15 +5,15 @@
 
 #to-login {
 	position: relative;
-	margin-top: 20%;
-	margin-left: 40%;
+	margin-top: 100px;
+	margin-left: 670px;
 	float: left;
 
 }
 
 #to-login-button {
-	height: 75px;
-	width: 250px;
+	height: 65px;
+	width: 240px;
 	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
     borderRadius: 3;
     border: 0;
@@ -21,7 +21,7 @@
     height: 70px;
     padding: 0 30px;
     boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
-    font-size: 16px;
+    font-size: 14px;
 
 }
 
@@ -44,13 +44,13 @@
 .form
 {	
 	position:absolute;
-	margin-top: 15%;
+	margin-top: 250px;
 	background: #eeeeee;
 	border-radius: .28571429rem;
 	border: 1px solid #d4d4d5;
 	padding: 60px;
 	display: inline-block;
-	margin-left: -15%;
+	margin-left: -275px;
 	box-shadow: 5px 5px 5px 1px #d4d4d580;
 	width: 320px;
 	height: 370px;
