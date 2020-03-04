@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import Grid from "@material-ui/core/Grid";
-// import Button from "@material-ui/core/Button";
-// import Form from "semantic-ui-react"
-
-
-// import Input from "./../Input";
 import Nav2 from "./../Nav2";
 import PokemonList from "./../PokemonList";
+import UserList from "./../UserList";
 
 import "./styles.css";
 
@@ -102,19 +97,85 @@ class Profile extends React.Component {
 		    	</div>
 
 		    	<div id="info">
-		    		<p> <strong>Name: </strong>{this.state.currentUser[0].name} </p>
-		    		<p> <strong>Title: </strong>{this.state.currentUser[0].title} </p>
-		    		<p> <strong>GameId: </strong>{this.state.currentUser[0].id} </p>
+
+		    		<div id="icon">
+		    			<i class="user circle outline huge red icon middle aligned"></i> <br></br>
+		    			<a> Profile </a>
+		    		</div>
+
+		    		<div id="user-list" class="ui divided relaxed list">
+		    			<div role="listitem" class="item">
+						    <i aria-hidden="true" class="user icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Trainer Name:</a>
+						        <a class="description"> {this.state.currentUser[0].name} </a>
+						    </div>
+						</div>
+
+					    <div role="listitem" class="item">
+						    <i aria-hidden="true" class="trophy icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Honored Title</a>
+						        <a class="description"> {this.state.currentUser[0].title}</a>
+						    </div>
+					    </div>
+
+						<div role="listitem" class="item">
+						    <i aria-hidden="true" class="tags icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Trainer Identification Number</a>
+						        <a class="description"> {this.state.currentUser[0].id} </a>
+						    </div>
+						</div>
+
+						<div role="listitem" class="item">
+						    <i aria-hidden="true" class="sticky note icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Few words about myself</a>
+						        <a class="description"> {this.state.currentUser[0].description} </a>
+						    </div>
+						</div>
+						
+
+		    		</div>
 		    	</div>
 
-		    	<div id="description">
-		    		<p> {this.state.currentUser[0].description} </p>
-		    	</div>
+		    
 
+		    	<div id="table-wrapper">
+	 				<table class="ui celled padded table">
+	                    <thead>
+		                    <tr>
+		                        <th>^0 ^</th>
+		                        <th>Pokemon Name</th>
+		                        <th>Pokemon ID</th>
+		                        <th>Level</th>
+		                        <th>Portal</th>
+		                    </tr>
+	                    </thead>
 
- 				<div id="poke-list">
- 					<PokemonList pokemon={this.state.currentUser[0].pokemon} queueComponent={this}/>
- 				</div> 
+	                    <PokemonList pokemon={this.state.currentUser[0].pokemon} queueComponent={this}/>
+
+	                    <tfoot>
+	                    <tr>
+	                        <th colspan="5">
+	                            <div className="ui right floated pagination menu">
+	                                <a className="icon item">
+	                                    <i className="left chevron icon"></i>
+	                                </a>
+	                                <a className="item">1</a>
+	                                <a className="item">2</a>
+	                                <a className="item">3</a>
+	                                <a className="item">4</a>
+	                                <a className="icon item">
+	                                    <i className="right chevron icon"></i>
+	                                </a>
+	                            </div>
+	                        </th>
+	                    </tr>
+	                    </tfoot>
+	                </table>
+                </div>
 
 
 	    	</div>

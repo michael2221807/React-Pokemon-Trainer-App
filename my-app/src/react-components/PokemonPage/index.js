@@ -25,7 +25,7 @@ class PokemonPage extends React.Component {
 	    users: [{ name: "user", 
 	              password: "user", 
 	              id: "0",
-	              title: "Nagger",
+	              title: "Newbee",
 	              money: 100,
 	              description: "",
 	              pokemon: [{ pokename: "Psyduck", 
@@ -43,7 +43,7 @@ class PokemonPage extends React.Component {
 	            { name: "user2", 
 	              password: "user2",
 	              id: "1",
-	              title: "IdealNagger",
+	              title: "Newbee",
 	              money: 200,
 	              description: "",
 	              pokemon: [{ pokename: "Pikachu", 
@@ -256,7 +256,11 @@ class PokemonPage extends React.Component {
 
 
 				<div id='poke-name'>
-					Name: {pokename}
+					<strong>{pokename}</strong>
+				</div>
+
+				<div id='poke-attributes'>
+					<strong>Attributes</strong>
 				</div>
 
 				<div id="pokemon-window">
@@ -303,27 +307,47 @@ class PokemonPage extends React.Component {
 				</div>
 
 				<div id="poke-info">
-					<ul id="poke-inio-list">
-						<li class="info-detail">
-							Level {poke.level}
-						</li>
 
-						<li class="info-detail">
-							HP: {poke.HP}/{poke.MaxHP}
-						</li>
+					<div id="pokeinfo-list" class="ui huge relaxed middle aligned divided list">
+		    			<div role="listitem" class="item">
+						    <i aria-hidden="true" class="paw icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Level: {poke.level} </a>
+						    </div>
+						</div>
 
-						<li class="info-detail">
-							Satiety: {poke.Satiety / poke.MaxSatiety * 100} %
-						</li>
+					    <div role="listitem" class="item">
+						    <i aria-hidden="true" class="heart icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">HP: {poke.HP}/{poke.MaxHP}</a>
+						    </div>
+					    </div>
 
-						<li class="info-detail">
-							Experience: {poke.Experience}/{poke.MaxExperience}
-						</li>
+						<div role="listitem" class="item">
+						    <i aria-hidden="true" class="utensils icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Satiety: {poke.Satiety / poke.MaxSatiety * 100} %</a>
+						    </div>
+						</div>
 
-						<li class="info-detail">
-							Lonliness: {poke.lonliness}
-						</li>
-					</ul>
+						<div role="listitem" class="item">
+						    <i aria-hidden="true" class="hourglass half icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Experience: {poke.Experience}/{poke.MaxExperience}</a>
+						    </div>
+						</div>
+						
+						<div role="listitem" class="item">
+						    <i aria-hidden="true" class="smile icon middle aligned"></i>
+						    <div class="content">
+						        <a class="header">Lonliness: {poke.lonliness}</a>
+						    </div>
+						</div>
+
+		    		</div>
+
+
+					
 				</div>
 
 				<div id="actions"> 

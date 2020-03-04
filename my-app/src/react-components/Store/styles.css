@@ -9,8 +9,6 @@
     width: 200px;
     margin-left: 43%;
     border-radius: 50%;
-
-
     position:absolute;
 }
 
@@ -23,9 +21,9 @@
     margin-right: 35px;
 }
 
-.div-picture{
+.div-pictureStore{
     height: 300px;
-    width: 200px;
+    width: 300px;
     padding-left: 130px;
     padding-top:50px;
 
@@ -63,3 +61,15 @@
     background-color:darkgrey;
     transition-duration: 1000ms;
 }
+
+#title-container {
+    position:relative;
+    top: 50px;
+}
+
+#store-container {
+    position:relative;
+    margin-left: 10%;
+    top: 150px;
+}
+
