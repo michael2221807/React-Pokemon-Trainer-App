@@ -1,0 +1,100 @@
+#App {
+	background-image: url(pikachu.jpg);
+	height: 1000px;
+	background-attachment: fixed;
+}
+
+#to-login {
+	position: relative;
+	margin-top: 100px;
+	margin-left: 670px;
+	float: left;
+
+}
+
+#to-login-button {
+	height: 65px;
+	width: 240px;
+	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    borderRadius: 3;
+    border: 0;
+    color: white;
+    height: 70px;
+    padding: 0 30px;
+    boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+    font-size: 14px;
+
+}
+
+
+#username {
+	align-items: center;
+	text-align: center;
+
+}
+#password {
+	align-items: center;
+	text-align: center;
+
+}
+#button {
+	align-items: center;
+	text-align: center;
+	margin-top: 25px;
+
+}
+
+.btn {
+	padding: 10px;
+}
+
+
+.form1
+{	
+	position:absolute;
+	margin-top: 150px;
+	background: hsla(0,0%,100%,.35);
+	background-attachment: fixed;
+	border-radius: .28571429rem;
+	border: 1px solid #d4d4d5;
+	padding: 60px;
+	display: inline-block;
+	margin-left: 635px;
+	box-shadow: 0 0 0 1px hsla(0,0%,100%,.55) inset,
+	            0 .25em 1em rgba(0, 0, 0, 0.25);
+	width: 370px;
+	height: 400px;
+    overflow: hidden;
+	background: url(pikachu.jpg);
+	z-index:1;
+
+	
+}
+
+.form1::before {
+	content: '';
+	position: absolute;
+	top:0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: inherit;
+	background-attachment: fixed;
+	filter: blur(15px);
+	z-index:-1;
+
+
+}
+
+.form1::after {
+  content: "";
+  position: absolute;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: hsla(0,0%,100%,.3);
+  z-index:-1;
+
+}
+

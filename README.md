@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## The app is currently host on http://localhost:3000/ And it is the Login Page
+## The app is currently host on http://localhost:3000/Home and the main page is at http://localhost:3000/Login
 
 ## Available Scripts
 

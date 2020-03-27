@@ -1,0 +1,57 @@
+#info {
+	border-radius: 3%;
+	position: absolute;
+    float: left;
+    padding: 10px;
+    height: auto;
+    border: 1px solid #d4d4d5;
+    width: 300px;
+    top: 150px;
+    margin-left: 40px;
+
+}
+
+#description {
+	border-radius: 3%;
+	position: absolute;
+    float: left;
+    padding: 10px;
+    top: 400px;
+    border: 1px solid #d4d4d5;
+    width: 300px;
+    height: auto;
+    margin-left: 40px;
+
+}
+
+
+.ui.table {
+    text-align:center;
+}
+
+#table-wrapper {
+    position: absolute;
+    top: 150px;
+    left: 380px;
+    width: 1000px;
+}
+
+#icon {
+    text-align:center;
+
+}
+
+.description {
+    text-align:left;
+}
+
+#user-list {
+    padding: 10px;
+}
+
+#changebutton {
+    text-align:center;
+    padding: 10px;
+    margin-top: 5px;
+}
+

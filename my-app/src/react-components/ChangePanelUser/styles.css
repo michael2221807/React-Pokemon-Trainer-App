@@ -1,0 +1,72 @@
+#App2 {
+	background: url(fire.jpg);
+	background-attachment: fixed;
+	height:1000px;
+
+	
+}
+
+/*#form {
+	z-index: 1;
+	position: relative;
+}*/
+
+#form
+{	
+	position:absolute;
+	margin-top: 150px;
+	background: hsla(0,0%,100%,.35);
+	background-attachment: fixed;
+	border-radius: .28571429rem;
+	border: 1px solid #d4d4d5;
+	padding: 60px;
+	display: inline-block;
+	margin-left: 635px;
+	box-shadow: 0 0 0 1px hsla(0,0%,100%,.55) inset,
+	            0 .25em 1em rgba(0, 0, 0, 0.25);
+	width: 370px;
+	height: 470px;
+    overflow: hidden;
+	background: url(fire.jpg);
+	z-index:1;
+
+	
+
+	
+
+	
+}
+
+#form::before {
+	content: '';
+	position: absolute;
+	top:0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: inherit;
+	background-attachment: fixed;
+	filter: blur(15px);
+	z-index:-1;
+
+
+}
+
+#form::after {
+  content: "";
+  position: absolute;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: hsla(0,0%,100%,.3);
+  z-index:-1;
+
+}
+
+
+
+#sbutton {
+	position: absolute;
+	margin-left: 75px;
+}

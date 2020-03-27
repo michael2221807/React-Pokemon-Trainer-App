@@ -1,0 +1,75 @@
+.inline-title {
+    font-size: 100px;
+    text-align: center;
+}
+
+#ball{
+    text-align: center;
+    height: 170px;
+    width: 200px;
+    margin-left: 43%;
+    border-radius: 50%;
+    position:absolute;
+}
+
+.inline-picture{
+    height: 600px;
+    width: 400px;
+    background-color:ghostwhite;
+    float: left;
+    margin-left: 40px;
+    margin-right: 35px;
+}
+
+.div-pictureStore{
+    height: 300px;
+    width: 300px;
+    padding-left: 130px;
+    padding-top:50px;
+
+}
+
+.nameTag {
+    font-size: 30px;
+    text-align: center;
+    margin:20px;
+}
+.priceTag {
+    font-size:20px;
+    text-align: center;
+    color:lightblue;
+    margin:20px;
+}
+.shape{
+    background-color: coral;
+    height: 40px;
+    width:80px;
+    border-radius: 10px;
+    margin-left: 300px;
+    margin-top:50px;
+    position:absolute;
+}
+#New{
+    color:aliceblue;
+    padding-left:23px;
+    position: absolute;
+    margin-top:9px;
+    height: 29px;
+    font-weight:bold;
+}
+.inline-picture:hover{
+    background-color:darkgrey;
+    transition-duration: 1000ms;
+}
+
+#title-container {
+    position:relative;
+    top: 50px;
+}
+
+#store-container {
+    position:relative;
+    margin-left: -1%;
+    top: 150px;
+}
+

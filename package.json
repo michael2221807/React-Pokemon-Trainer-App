@@ -1,48 +1,24 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "npm": "6.13.7",
-    "node": "13.8.0"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.9.4",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.1",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.19.2",
-    "cors": "^2.8.5",
-    "material-ui": "^1.0.0-beta.47",
-    "mongoose": "^5.9.5",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
-    "react-uid": "^2.2.0",
-    "semantic-ui-react": "^0.88.2",
-    "uid": "0.0.2",
-    "yarn": "^1.22.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "user_server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "setup": "npm install && cd my-app && npm install && cd ..",
+        "build-run": "cd my-app && npm run build && cd .. && node index.js",
+        "start": "node index.js",
+        "heroku-postbuild": "cd my-app && npm install && npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.0",
+        "mongodb": "^3.5.5",
+        "mongoose": "^5.9.5",
+        "validator": "^12.2.0"
+    }
 }
