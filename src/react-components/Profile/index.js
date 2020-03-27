@@ -6,72 +6,37 @@ import UserList from "./../UserList";
 
 import "./styles.css";
 
+import api from "./../../api"
+
 class Profile extends React.Component {
 
 	state = {
-	    signin: false,
-	    signup: false,
-	    nav1: true,
-	    nav2: false,
+		isLoading: false,
 
 	    username: "user",
 	    password: "user",
 	    
-	    users: [{ name: "user", 
-	              password: "user", 
-	              id: "0",
-	              title: "Newbee",
-	              money: 100,
-	              description: "",
-	              pokemon: [{ pokename: "Psyduck", 
-	                          pokeid: 1, 
-	                          HP: 10, 
-	                          MaxHP: 10, 
-	                          Satiety: 10, 
-	                          MaxSatiety: 10, 
-	                          Experience: 0, 
-	                          MaxExperience: 100, 
-	                          level: 0, 
-	                          lonliness: 0
-	                        }] 
-	            },
-	            { name: "user2", 
-	              password: "user2",
-	              id: "1",
-	              title: "Newbee",
-	              money: 200,
-	              description: "",
-	              pokemon: [{ pokename: "Pikachu", 
-	                          pokeid: 2, 
-	                          HP: 15, 
-	                          MaxHP: 15, 
-	                          Satiety: 8, 
-	                          MaxSatiety: 8, 
-	                          Experience: 0, 
-	                          MaxExperience: 100, 
-	                          level: 0, 
-	                          lonliness: 0
-	                        }] 
-	            }],
-	      currentUser: [{ 
-	      				  name: "user", 
-			              password: "user", 
+	    users: [],
+	    currentUser: [{ 
+	      				  name: "Placeholder", 
+			              password: "Placeholder",
 			              id: "0",
-			              title: "Newbee",
+			              title: "Placeholder",
 			              money: 100,
-			              description: "I am a Pokemon Trainer!",
-			              pokemon: [{ pokename: "Psyduck", 
+			              description: "Placeholder",
+			              pokemon: [{ pokename: "Placeholder", 
 			                          pokeid: 1, 
-			                          HP: 10, 
+			                          sprite: 1,
+			                          HP: 1, 
 			                          MaxHP: 10, 
-			                          Satiety: 10, 
+			                          Satiety: 0, 
 			                          MaxSatiety: 10, 
 			                          Experience: 0, 
 			                          MaxExperience: 100, 
 			                          level: 0, 
-			                          lonliness: 0
+			                          lonliness: 15
 			                        },
-			                        { pokename: "Pikachu", 
+			                        { pokename: "Placeholder", 
 			                          pokeid: 2, 
 			                          HP: 15, 
 			                          MaxHP: 15, 
@@ -83,7 +48,36 @@ class Profile extends React.Component {
 			                          lonliness: 0
 	                        }] 
 		            }]
-	  };
+	};
+
+	componentDidMount = async () => {
+		
+		// console.log(this.state.currentUser)
+
+	    this.setState({ isLoading: true })
+
+	    await api.getAllUsers().then(users => {
+	    	this.setState({
+	    		users: users.data.data
+	    	})
+	    })
+
+	    const userlist = this.state.users
+	    userlist.map(u => {
+	      	if (u.isCurrent) {
+	      		// console.log(u)
+	      		this.state.currentUser = []
+	        	this.state.currentUser.push(u)
+	          	this.setState({
+		            currentUser: this.state.currentUser,
+		            isLoading: false
+	          	})
+		       
+	      	}
+	      	this.setState({ isLoading: false })
+	    })
+	   	// console.log(this.state.currentUser)
+  	};
 
 
 	render() {
@@ -135,6 +129,12 @@ class Profile extends React.Component {
 						        <a class="description"> {this.state.currentUser[0].description} </a>
 						    </div>
 						</div>
+
+						<div id='changebutton'>
+							<Link to='./../ChangePanelUser'>
+								<button className="ui blue button"> Change </button> 
+							</Link>
+						</div>
 						
 
 		    		</div>
@@ -154,7 +154,7 @@ class Profile extends React.Component {
 		                    </tr>
 	                    </thead>
 
-	                    <PokemonList pokemon={this.state.currentUser[0].pokemon} queueComponent={this}/>
+	                    <PokemonList currentUser={this.state.currentUser[0]} queueComponent={this}/>
 
 	                    <tfoot>
 	                    <tr>
@@ -181,7 +181,7 @@ class Profile extends React.Component {
 	    	</div>
 
     	);
-  }
+  	}
 }
 
 export default Profile;

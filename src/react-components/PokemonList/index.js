@@ -4,17 +4,28 @@ import { Link } from "react-router-dom"
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import Pokemon from './../Pokemon'
+import api from "./../../api"
+
 
 class PokemonList extends React.Component {
 
+	onClickhandler = async (target, pokemon) => {
+		// console.log(target)
+		pokemon.isTarget = true
+		await api.updateUserById(target.id, target).then((res) => {
+			// window.alert(`Change Success!`)
+		})
+		window.location.reload();
+	};
+
 	render() {
-		const {pokemon, queueComponent} = this.props;
+		const {currentUser, queueComponent} = this.props;
 
 		return (
 			
 
 		     <tbody>
-		    	{pokemon.map(pokemon => (
+		    	{currentUser.pokemon.map(pokemon => (
 	                <tr>
 	                    
                         <Pokemon
@@ -39,7 +50,7 @@ class PokemonList extends React.Component {
 
 	                    <td>
 	                    	<Link to='./../PokemonPage'>
-	                        	<button className="ui blue button">Detail</button> 
+	                        	<button className="ui blue button" onClick={() => this.onClickhandler(currentUser, pokemon)}>Detail</button> 
 	                    	</Link>
 	                    </td>
 	                </tr>

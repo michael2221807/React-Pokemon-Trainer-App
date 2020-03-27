@@ -14,9 +14,9 @@ class Nav extends React.Component {
 
     let name = "N/A"
     let money = 0
-    console.log(this.props)
+    // console.log(this.props)
     const currentUser = this.props.state.currentUser[0]
-    console.log(currentUser)
+    // console.log(currentUser)
     if (currentUser !== undefined) {
       name = currentUser.name
       money = currentUser.money

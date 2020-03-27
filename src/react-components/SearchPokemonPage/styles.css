@@ -1,0 +1,120 @@
+#poke-name {
+	position: absolute;
+	background-color: #d4d4d529;
+	width: 310px;
+	height: 35px;
+	text-align: center;
+	top: 115px;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 40px;
+}
+
+#poke-attributes {
+	position: absolute;
+	background-color: #d4d4d529;
+	width: 500px;
+	height: 35px;
+	text-align: center;
+	top: 115px;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 380px;
+}
+
+#poke-name strong {
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+#poke-attributes strong {
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+#pokemon-window {
+	position: absolute;
+	background-color: #d4d4d529;
+	width: 310px;
+	height: 500px;
+	text-align: center;
+	top: 155px;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 40px;
+	
+}
+
+#poke-info {
+	position: absolute;
+	background-color: #d4d4d529;
+	width: 500px;
+	height: auto;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
+	margin-left: 380px;
+	top: 155px;
+	text-align: center;
+}
+
+
+#actions1 {
+	position: absolute;
+	top: 500px;
+	margin-left: 565px;
+}
+
+#play {
+	margin-left: 10px;
+	height: 50px;
+	width: 100px;
+	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    borderRadius: 3;
+    border: 0;
+    color: white;
+    padding: 0 30px;
+    boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+
+}
+
+#feed {
+	margin-left: 10px;
+	height: 50px;
+	width: 100px;
+	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    borderRadius: 3;
+    border: 0;
+    color: white;
+    padding: 0 30px;
+    boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+
+}
+
+#train {
+	margin-left: 10px;
+	height: 50px;
+	width: 100px;
+	background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    borderRadius: 3;
+    border: 0;
+    color: white;
+    padding: 0 30px;
+    boxShadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+
+}
+#pokeinfo-list {
+    padding: 20px;
+}
+
+.item {
+	position: relative;
+	margin-top: 5px;
+    margin-bottom: 5px;
+	
+}
+
+
+
+
+
+

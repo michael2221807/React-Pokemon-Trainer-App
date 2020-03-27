@@ -105,6 +105,8 @@ h5 {
 	margin-bottom: 10px;
 	bottom: 0;
 	left: 35%;
+	border: 1px solid #d4d4d5;
+	border-radius: .28571429rem;
 }
 
 #Search_img{
@@ -139,4 +141,10 @@ h5 {
 #Profile_img_gif{
 	width: 60%;
 	height:60%;
+}
+
+#sbutton1{
+	text-align:center;
+	padding:4p
+	x;
 }

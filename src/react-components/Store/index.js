@@ -1,92 +1,64 @@
 import React from "react";
 
 import Nav2 from "./../Nav2";
+
+import api from "./../../api"
+
 import "./styles.css";
 
 import pikachu from "./pikachu.gif";
 import psyduck from "./psyduck.gif";
 import charmander from "./charmander.gif";
+import gengar from "./gengar.gif"
+import snorlax from "./snorlax.gif"
+import squirtle from "./squirtle.gif"
 import ball from "./ball.gif";
 
 
 class Store extends React.Component{
-    render() {
-        this.state = {
-            signin: false,
-            signup: false,
-            nav1: true,
-            nav2: false,
+
+    state = {
+            isLoading: false,
 
             username: "user",
             password: "user",
 
-            users: [{ name: "user",
-                password: "user",
-                id: "0",
-                title: "Newbee",
-                money: 100,
-                description: "",
-                pokemon: [{ pokename: "Psyduck",
-                    pokeid: 1,
-                    HP: 10,
-                    MaxHP: 10,
-                    Satiety: 10,
-                    MaxSatiety: 10,
-                    Experience: 0,
-                    MaxExperience: 100,
-                    level: 0,
-                    lonliness: 0
-                }]
-            },
-                { name: "user2",
-                    password: "user2",
-                    id: "1",
-                    title: "Newbee",
-                    money: 200,
-                    description: "",
-                    pokemon: [{ pokename: "Pikachu",
-                        pokeid: 2,
-                        HP: 15,
-                        MaxHP: 15,
-                        Satiety: 8,
-                        MaxSatiety: 8,
-                        Experience: 0,
-                        MaxExperience: 100,
-                        level: 0,
-                        lonliness: 0
-                    }]
-                }],
-            currentUser: [{
-                name: "user",
-                password: "user",
-                id: "0",
-                title: "Nagger",
-                money: 100,
-                description: "I am a Pokemon Trainer!",
-                pokemon: [{ pokename: "Psyduck",
-                    pokeid: 1,
-                    HP: 10,
-                    MaxHP: 10,
-                    Satiety: 10,
-                    MaxSatiety: 10,
-                    Experience: 0,
-                    MaxExperience: 100,
-                    level: 0,
-                    lonliness: 0
-                },
-                    { pokename: "Pikachu",
-                        pokeid: 2,
-                        HP: 15,
-                        MaxHP: 15,
-                        Satiety: 8,
-                        MaxSatiety: 8,
-                        Experience: 0,
-                        MaxExperience: 100,
-                        level: 0,
-                        lonliness: 0
-                    }]
-            }]
-        };
+            users: [],
+            currentUser: []
+            
+    };
+
+    componentDidMount = async () => {
+        
+        // console.log(this.state.currentUser)
+
+        this.setState({ isLoading: true })
+
+        await api.getAllUsers().then(users => {
+            this.setState({
+                users: users.data.data
+            })
+        })
+
+        const userlist = this.state.users
+        userlist.map(u => {
+            if (u.isCurrent) {
+                // console.log(u)
+                this.state.currentUser = []
+                this.state.currentUser.push(u)
+                this.setState({
+                    currentUser: this.state.currentUser,
+                    isLoading: false
+                })
+               
+            }
+            this.setState({ isLoading: false })
+        })
+        // console.log(this.state.currentUser)
+    };
+
+    render() {
+        
         return(
             <div>
                 <Nav2 state={this.state}/>
@@ -96,7 +68,7 @@ class Store extends React.Component{
             </div>
 
             <div id="store-container">
-                <a href="./../Product">
+                <a href="./../Pikachu">
                 <div className="inline-picture">
                     <div >
                         <div className="shape"><span id="New">New</span></div>
@@ -109,7 +81,7 @@ class Store extends React.Component{
                 </a>
 
 
-                <a href="./../Product">
+                <a href="./../Psyduck">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
@@ -121,7 +93,7 @@ class Store extends React.Component{
                 </div>
                 </a>
 
-                <a href="./../Product">
+                <a href="./../Charmander">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
@@ -129,6 +101,42 @@ class Store extends React.Component{
                     </div>
 
                     <h5 className="nameTag">Charmander</h5>
+                    <h5 className="priceTag">$20</h5>
+                </div>
+                </a>
+
+                <a href="./../Snorlax">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={snorlax}></img>
+                    </div>
+
+                    <h5 className="nameTag">Snorlax</h5>
+                    <h5 className="priceTag">$20</h5>
+                </div>
+                </a>
+
+                <a href="./../Squirtle">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={squirtle}></img>
+                    </div>
+
+                    <h5 className="nameTag">Squirtle</h5>
+                    <h5 className="priceTag">$20</h5>
+                </div>
+                </a>
+
+                <a href="./../Gengar">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={gengar}></img>
+                    </div>
+
+                    <h5 className="nameTag">Gengar</h5>
                     <h5 className="priceTag">$20</h5>
                 </div>
                 </a>

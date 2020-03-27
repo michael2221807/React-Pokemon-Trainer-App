@@ -7,6 +7,7 @@ import Psyduck from "./psyduck.gif";
 import Psyduck2 from "./psyduck-2.gif";
 import Psyduck3 from "./psyduck-3.gif"
 import Pikachu from "./pikachu.gif";
+import api from "./../../api"
 
 import "./styles.css"
 
@@ -22,116 +23,129 @@ class PokemonPage extends React.Component {
 	    username: "user",
 	    password: "user",
 	    
-	    users: [{ name: "user", 
-	              password: "user", 
-	              id: "0",
-	              title: "Newbee",
-	              money: 100,
-	              description: "",
-	              pokemon: [{ pokename: "Psyduck", 
-	                          pokeid: 1, 
-	                          HP: 10, 
-	                          MaxHP: 10, 
-	                          Satiety: 10, 
-	                          MaxSatiety: 10, 
-	                          Experience: 0, 
-	                          MaxExperience: 100, 
-	                          level: 0, 
-	                          lonliness: 0
-	                        }] 
-	            },
-	            { name: "user2", 
-	              password: "user2",
-	              id: "1",
-	              title: "Newbee",
-	              money: 200,
-	              description: "",
-	              pokemon: [{ pokename: "Pikachu", 
-	                          pokeid: 2, 
-	                          HP: 15, 
-	                          MaxHP: 15, 
-	                          Satiety: 8, 
-	                          MaxSatiety: 8, 
-	                          Experience: 0, 
-	                          MaxExperience: 100, 
-	                          level: 0, 
-	                          lonliness: 0
-	                        }] 
-	            }],
-	      currentUser: [{ 
-	      				  name: "user", 
-			              password: "user",
-			              id: "0",
-			              title: "Nagger",
-			              money: 100,
-			              description: "I am a Pokemon Trainer!",
-			              pokemon: [{ pokename: "Psyduck", 
-			                          pokeid: 1, 
-			                          sprite: 1,
-			                          HP: 1, 
-			                          MaxHP: 10, 
-			                          Satiety: 0, 
-			                          MaxSatiety: 10, 
-			                          Experience: 0, 
-			                          MaxExperience: 100, 
-			                          level: 0, 
-			                          lonliness: 15
-			                        },
-			                        { pokename: "Pikachu", 
-			                          pokeid: 2, 
-			                          HP: 15, 
-			                          MaxHP: 15, 
-			                          Satiety: 8, 
-			                          MaxSatiety: 8, 
-			                          Experience: 0, 
-			                          MaxExperience: 100, 
-			                          level: 0, 
-			                          lonliness: 0
-	                        }] 
-		            }]
-	  		};
+	    users: [],
+	    currentUser: [],
+	    pokemon: [{
+			    	pokename: "Pikachu", 
+					pokeid: 1, 
+					sprite: 1,
+					HP: 1, 
+					MaxHP: 10, 
+					Satiety: 0, 
+					MaxSatiety: 10, 
+					Experience: 0, 
+					MaxExperience: 100, 
+					level: 0, 
+					lonliness: 15
+	    }]
+	};
+
+	componentDidMount = async () => {
+		
+		// console.log(this.state.currentUser)
+
+	    this.setState({ isLoading: true })
+
+	    await api.getAllUsers().then(users => {
+	    	this.setState({
+	    		users: users.data.data
+	    	})
+	    })
+
+	    const userlist = this.state.users
+	    userlist.map(u => {
+	      	if (u.isCurrent) {
+	      		// console.log(u)
+	      		this.state.currentUser = []
+	        	this.state.currentUser.push(u)
+	          	this.setState({
+		            currentUser: this.state.currentUser,
+		            isLoading: false
+	          	})
+
+	          	const pokemons = this.state.currentUser[0].pokemon
+
+	          	pokemons.map(poke => {
+	          		if (poke.isTarget) {
+	          			this.state.pokemon = []
+	          			this.state.pokemon.push(poke)
+	          			this.setState({
+	          				pokemon: this.state.pokemon
+	          			})
+	          		}
+	          	})
+		       
+	      	}
+	      	this.setState({ isLoading: false })
+	    })
+	   	// console.log(this.state.currentUser)
+  	};
 
 
 	spriteChange = (num) =>{
-		const currentUser = this.state.currentUser
-		currentUser[0].pokemon[0].sprite = num
-		this.setState({
-			currentUser: currentUser
+		this.state.pokemon[0].sprite = num
+		this.state.currentUser[0].pokemon.map(poke => {
+			if (poke.isTarget) {
+				poke = this.state.pokemon[0]
+			}
 		})
+		this.setState({
+			currentUser: this.state.currentUser,
+			pokemon: this.state.pokemon
+		})
+
+		api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 	};
 
 	train = () => {
-		const Satiety = this.state.currentUser[0].pokemon[0].Satiety
-		const MaxSatiety = this.state.currentUser[0].pokemon[0].MaxSatiety
-		const HP = this.state.currentUser[0].pokemon[0].HP
-		const MaxHP = this.state.currentUser[0].pokemon[0].MaxHP
-		const Experience = this.state.currentUser[0].pokemon[0].Experience
-		const MaxExperience = this.state.currentUser[0].pokemon[0].MaxExperience
-		const lonliness = this.state.currentUser[0].pokemon[0].lonliness
 		const currentUser = this.state.currentUser
+		const pokemon = this.state.pokemon
+		const Satiety = pokemon[0].Satiety
+		const MaxSatiety = pokemon[0].MaxSatiety
+		const HP = pokemon[0].HP
+		const MaxHP = pokemon[0].MaxHP
+		const Experience = pokemon[0].Experience
+		const MaxExperience = pokemon[0].MaxExperience
+		const lonliness = pokemon[0].lonliness
 
 		if (Experience < MaxExperience && (Satiety - 5) > 0) {
-			currentUser[0].pokemon[0].Experience += 10
-			currentUser[0].pokemon[0].Satiety -= 5
-			currentUser[0].pokemon[0].sprite = 2
-			this.setState({
-				currentUser: currentUser
+			pokemon[0].Experience += 10
+			pokemon[0].Satiety -= 5
+			pokemon[0].sprite = 2
+			currentUser[0].pokemon.map(poke => {
+				if (poke.isTarget) {
+					poke = pokemon[0]
+				}
 			})
+			this.setState({
+				currentUser: currentUser,
+				pokemon: pokemon
+			})
+
+			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 			setTimeout(function(){
 				this.spriteChange(1)
 			}.bind(this), 2500);
 
 		} else if (Experience >= MaxExperience && (Satiety - 5) > 0) {
-			currentUser[0].pokemon[0].level += 1
-			currentUser[0].pokemon[0].Experience = 0
-			currentUser[0].pokemon[0].MaxExperience *= 2
-			currentUser[0].pokemon[0].MaxHP *= 2
-			currentUser[0].pokemon[0].MaxSatiety *= 2
-			currentUser[0].pokemon[0].sprite = 2
-			this.setState({
-				currentUser: currentUser
+			pokemon[0].level += 1
+			pokemon[0].Experience = 0
+			pokemon[0].MaxExperience *= 2
+			pokemon[0].MaxHP *= 2
+			pokemon[0].MaxSatiety *= 2
+			pokemon[0].sprite = 2
+			currentUser[0].pokemon.map(poke => {
+				if (poke.isTarget) {
+					poke = pokemon[0]
+				}
 			})
+			this.setState({
+				currentUser: currentUser,
+				pokemon: pokemon
+			})
+
+			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 			setTimeout(function(){
 				this.spriteChange(1)
@@ -141,20 +155,29 @@ class PokemonPage extends React.Component {
 	};
 
 	play = () => {
-		const Satiety = this.state.currentUser[0].pokemon[0].Satiety
-		const MaxSatiety = this.state.currentUser[0].pokemon[0].MaxSatiety
-		const HP = this.state.currentUser[0].pokemon[0].HP
-		const MaxHP = this.state.currentUser[0].pokemon[0].MaxHP
-		const lonliness = this.state.currentUser[0].pokemon[0].lonliness
+		const pokemon = this.state.pokemon
 		const currentUser = this.state.currentUser
+		const Satiety = pokemon[0].Satiety
+		const MaxSatiety = pokemon[0].MaxSatiety
+		const HP = pokemon[0].HP
+		const MaxHP = pokemon[0].MaxHP
+		const lonliness = pokemon[0].lonliness
 
-		if (lonliness >= 0 && (Satiety - 2) >= 0) {
-			currentUser[0].pokemon[0].lonliness -= 5
-			currentUser[0].pokemon[0].Satiety -= 2
-			currentUser[0].pokemon[0].sprite = 3
-			this.setState({
-				currentUser: currentUser
+		if (lonliness >= 5 && (Satiety - 2) >= 0) {
+			pokemon[0].lonliness -= 5
+			pokemon[0].Satiety -= 2
+			pokemon[0].sprite = 3
+			currentUser[0].pokemon.map(poke => {
+				if (poke.isTarget) {
+					poke = pokemon[0]
+				}
 			})
+			this.setState({
+				currentUser: currentUser,
+				pokemon: pokemon
+			})
+
+			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 			setTimeout(function(){
 				this.spriteChange(1)
@@ -165,34 +188,52 @@ class PokemonPage extends React.Component {
 
 
 	feed = () => {
-		const Satiety = this.state.currentUser[0].pokemon[0].Satiety
-		const MaxSatiety = this.state.currentUser[0].pokemon[0].MaxSatiety
-		const HP = this.state.currentUser[0].pokemon[0].HP
-		const MaxHP = this.state.currentUser[0].pokemon[0].MaxHP
-		const lonliness = this.state.currentUser[0].pokemon[0].lonliness
-		const Experience = this.state.currentUser[0].pokemon[0].Experience
-		const MaxExperience = this.state.currentUser[0].pokemon[0].MaxExperience
-
 		const currentUser = this.state.currentUser
+		const pokemon = this.state.pokemon
+		const Satiety = pokemon[0].Satiety
+		const MaxSatiety = pokemon[0].MaxSatiety
+		const HP = pokemon[0].HP
+		const MaxHP = pokemon[0].MaxHP
+		const lonliness = pokemon[0].lonliness
+		const Experience = pokemon[0].Experience
+		const MaxExperience = pokemon[0].MaxExperience
+
 
 		if (Satiety < MaxSatiety) {
-			currentUser[0].pokemon[0].Satiety += 1
-			currentUser[0].pokemon[0].sprite = 2
-			this.setState({
-				currentUser: currentUser
+			pokemon[0].Satiety += 1
+			pokemon[0].sprite = 2
+			currentUser[0].pokemon.map(poke => {
+				if (poke.isTarget) {
+					poke = pokemon[0]
+				}
 			})
+
+			this.setState({
+				currentUser: currentUser,
+				pokemon: pokemon
+			})
+
+			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 			setTimeout(function(){
 				this.spriteChange(1)
 			}.bind(this), 2500);
 
 		} else if (Satiety >= MaxSatiety && HP < MaxHP) {
-			currentUser[0].pokemon[0].HP += 1
-			currentUser[0].pokemon[0].sprite = 2
+			pokemon[0].HP += 1
+			pokemon[0].sprite = 2
+			currentUser[0].pokemon.map(poke => {
+				if (poke.isTarget) {
+					poke = pokemon[0]
+				}
+			})
 
 			this.setState({
-				currentUser: currentUser
+				currentUser: currentUser,
+				pokemon: pokemon
 			})
+
+			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 			setTimeout(function(){
 				this.spriteChange(1)
@@ -200,11 +241,19 @@ class PokemonPage extends React.Component {
 
 
 		} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness > 0) {
-			currentUser[0].pokemon[0].lonliness -= 1
-			currentUser[0].pokemon[0].sprite = 2
-			this.setState({
-				currentUser: currentUser
+			pokemon[0].lonliness -= 1
+			pokemon[0].sprite = 2
+			currentUser[0].pokemon.map(poke => {
+				if (poke.isTarget) {
+					poke = pokemon[0]
+				}
 			})
+			this.setState({
+				currentUser: currentUser,
+				pokemon: pokemon
+			})
+
+			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 			setTimeout(function(){
 				this.spriteChange(1)
@@ -212,26 +261,42 @@ class PokemonPage extends React.Component {
 
 		} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness <= 0) {
 			if (Experience < MaxExperience) {
-				currentUser[0].pokemon[0].Experience += 1
-				currentUser[0].pokemon[0].sprite = 2
-				this.setState({
-					currentUser: currentUser
+				pokemon[0].Experience += 1
+				pokemon[0].sprite = 2
+				currentUser[0].pokemon.map(poke => {
+					if (poke.isTarget) {
+						poke = pokemon[0]
+					}
 				})
+				this.setState({
+					currentUser: currentUser,
+					pokemon: pokemon
+				})
+
+				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 				setTimeout(function(){
 					this.spriteChange(1)
 				}.bind(this), 2500);
 
 			} else if (Experience >= MaxExperience) {
-				currentUser[0].pokemon[0].level += 1
-				currentUser[0].pokemon[0].Experience = 0
-				currentUser[0].pokemon[0].MaxExperience *= 2
-				currentUser[0].pokemon[0].MaxHP *= 2
-				currentUser[0].pokemon[0].MaxSatiety *= 2
-				currentUser[0].pokemon[0].sprite = 2
-				this.setState({
-					currentUser: currentUser
+				pokemon[0].level += 1
+				pokemon[0].Experience = 0
+				pokemon[0].MaxExperience *= 2
+				pokemon[0].MaxHP *= 2
+				pokemon[0].MaxSatiety *= 2
+				pokemon[0].sprite = 2
+				currentUser[0].pokemon.map(poke => {
+					if (poke.isTarget) {
+						poke = pokemon[0]
+					}
 				})
+				this.setState({
+					currentUser: currentUser,
+					pokemons: pokemon
+				})
+
+				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
 				setTimeout(function(){
 					this.spriteChange(1)
@@ -244,10 +309,9 @@ class PokemonPage extends React.Component {
 
 	render() {
 
-		const {pokemon} = this.props;
-	  	const pokename = this.state.currentUser[0].pokemon[0].pokename
-	  	const sprite = this.state.currentUser[0].pokemon[0].sprite
-	  	const poke = this.state.currentUser[0].pokemon[0]
+	  	const pokename = this.state.pokemon[0].pokename
+	  	const sprite = this.state.pokemon[0].sprite
+	  	const poke = this.state.pokemon[0]
 		return (
 
 			<div id='main-page'>

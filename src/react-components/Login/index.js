@@ -20,12 +20,15 @@ import Profile from "./../Profile";
 import Input from "./../Input";
 import UserManager from "./../UserManager";
 
+import api from "./../../api"
+
 import "./styles.css";
 
 class Login extends React.Component {
   ///  React 'state'.
   // Allows us to keep track of chagning data in this component.
   state = {
+    isLoading: false,
     signin: false,
     signup: false,
     nav1: true,
@@ -36,47 +39,52 @@ class Login extends React.Component {
     username: "",
     password: "",
     
-    users: [{ name: "user", 
-              password: "user", 
-              id: "0",
-              title: "Newbee",
-              money: 100,
-              description: "",
-              pokemon: [{ pokename: "Psyduck", 
-                          pokeid: 1, 
-                          HP: 10, 
-                          MaxHP: 10, 
-                          Satiety: 10, 
-                          MaxSatiety: 10, 
-                          Experience: 0, 
-                          MaxExperience: 100, 
-                          level: 0, 
-                          lonliness: 0
-                        }] 
-            },
-            { name: "user2", 
-              password: "user2", 
-              id: "1",
-              title: "Newbee",
-              money: 200,
-              description: "",
-              pokemon: [{ pokename: "Pikachu", 
-                          pokeid: 2, 
-                          HP: 15, 
-                          MaxHP: 15, 
-                          Satiety: 8, 
-                          MaxSatiety: 8, 
-                          Experience: 0, 
-                          MaxExperience: 100, 
-                          level: 0, 
-                          lonliness: 0
-                        }] 
-            }],
-      currentUser: []
+    users: [],
+    currentUser: []
   };
 
 
+  componentDidMount = async () => {
 
+    this.setState({ isLoading: true })
+
+    await api.getAllUsers().then(users => {
+      this.setState({
+        users: users.data.data
+      })
+    })
+
+    const userlist = this.state.users
+    userlist.map(u => {
+      if (u.isCurrent) {
+        this.state.currentUser.push(u)
+
+        if (u.name === 'admin') {
+          if (u.password === 'admin') {
+            this.setState({
+              currentUser: this.state.currentUser,
+              signin: false,
+              nav1: false,
+              nav3: true,
+              login: false,
+              isLoading: false
+            })
+
+          }
+        }else {
+          this.setState({
+            currentUser: this.state.currentUser,
+            signin: false,
+            nav1: false,
+            nav2: true,
+            login: false,
+            isLoading: false
+          })
+        }
+      }
+      this.setState({ isLoading: false })
+    })
+  };
 
   // Generic handler for whenever we type in an input box.
   // We change the state for the particular property bound to the textbox from the event.
@@ -93,7 +101,7 @@ class Login extends React.Component {
     });
   };
 
-
+  // login window handler
   handleClick = event => {
       event.preventDefault();
       if (this.state.signin === false) {
@@ -108,6 +116,7 @@ class Login extends React.Component {
       }
   };
 
+  //sign up handler
   handleClick2 = event => {
       event.preventDefault();
       if (this.state.signup === false) {
@@ -122,39 +131,47 @@ class Login extends React.Component {
       }
   };
 
+  //sign in handler
   verifyUser = () => {
+
     const username = this.state.username
     const password = this.state.password
     const userlist = this.state.users
-
-    if (username === 'admin') {
-      if (password === 'admin') {
-        this.state.currentUser = [{name:'admin'}]
-        this.setState({
-          currentUser: this.state.currentUser,
-          signin: false,
-          nav1: false,
-          nav3: true,
-          login: false
-        })
-
-      }
-    }
 
     userlist.map(u => {
       if (u.name === username) {
         if (u.password === password) {
           console.log("Log in successfully!")
           // console.log(u)
+          u.isCurrent = true
+          api.updateUserById(u.id, u).then((res) => {
+            window.alert(`Login Success!`)
+          })
           this.state.currentUser = []
           this.state.currentUser.push(u)
-          this.setState({
-            currentUser: this.state.currentUser,
-            signin: false,
-            nav1: false,
-            nav2: true,
-            login: false
-          })
+
+          if (username === 'admin') {
+            if (password === 'admin') {
+              this.state.currentUser = [{name:'admin'}]
+              this.setState({
+                currentUser: this.state.currentUser,
+                signin: false,
+                nav1: false,
+                nav3: true,
+                login: false
+              })
+
+            }
+          } else {
+            this.setState({
+              currentUser: this.state.currentUser,
+              signin: false,
+              nav1: false,
+              nav2: true,
+              login: false
+            })
+          }
+
           
           // console.log(user.state.currentUser)
         } else {
@@ -164,30 +181,69 @@ class Login extends React.Component {
     })
   };
 
-  addUser = () => {
+  idGenerator = () => {
+
+    api.getAllUsers().then(u => {
+      this.setState({
+        users: u.data.data
+      })
+    })
+
+    const users = this.state.users
+    let result = 1
+    let ids = [] 
+    users.map(u => {
+      ids.push(u.id)
+    })
+
+    if (ids.length === 0) {
+      result += 1
+    }
+
+    for (let i = 0; i < ids.length; i++) {
+      result += parseInt(ids[i])
+    }
+
+    return result
+
+  };
+
+  addUser = async () => {
     const users = this.state.users
     const _user = {
       name: this.state.username,
       password: this.state.password,
-      title: "Nagger",
-      money: 100,
-      pokemon: []
+      id: this.idGenerator()
     };
 
+    var isValid = true
+
     users.map(u => {
-      if (_user.name !== u.name) {
-        users.push(_user);
-      } else {
-        console.log("username: " + u.name + " has been taken!")
+      if (_user.name === u.name) {
+        isValid = false
       }
     })
 
+    if (isValid) {
+      await api.insertUser(_user).then((res) => {
+        window.alert(`Sigup Success!`)
+      })
+
+    }else {
+      window.alert(`Fail! User already exists!`)
+    }
+
+    await api.getAllUsers().then(u => {
+      this.setState({
+        users: u.data.data
+      })
+    })
+
     this.setState({
-      users: users,
       signin: true,
       signup: false
     })
-    // console.log(users)
+    console.log(this.state.users)
   };
   
 
@@ -240,9 +296,9 @@ class Login extends React.Component {
 
         <div id="sign-in" style={style1}>
         
-          <form className="form"> 
+          <form className="form1"> 
             <div id="username">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username"><strong>Username</strong></label>
               <Input
                 name="username"
                 value={this.state.username}
@@ -252,7 +308,7 @@ class Login extends React.Component {
             </div>
             <div id="password">
               
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password"><strong>Password</strong></label>
               <Input
                 name="password"
                 value={this.state.password}
@@ -262,24 +318,33 @@ class Login extends React.Component {
             </div>
 
             <div id="button">
-              
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.verifyUser}
-                className="user-signin-button"
-              >
-                Login
-              </Button>
 
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.handleClick2}
-                className="user-signup-button"
-              >
-                Sign up
-              </Button>
+              <div class="btn">
+              
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={this.verifyUser}
+                  className="user-signin-button"
+                >
+                  Login
+                </Button>
+
+              </div>
+
+              <div class="btn">
+
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={this.handleClick2}
+                  className="user-signup-button"
+                >
+                  Sign up
+                </Button>
+
+              </div>
+
             </div>
 
           </form>
@@ -290,7 +355,7 @@ class Login extends React.Component {
 
         <div id="sign-up" style={style2}>
         
-          <form className="form"> 
+          <form className="form1"> 
             <div id="username">
               <label htmlFor="username">Username</label>
               <Input
