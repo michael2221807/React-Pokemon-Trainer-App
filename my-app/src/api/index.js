@@ -20,9 +20,7 @@ export const getUserById = id => axios.get(`/api/user/${id}`)
 // 	const url = "/api/user"
 // }
 
-// export const getAllUsers = () => {
-// 	const url = "/api/users"
-// }
+
 
 const apis = {
     insertUser,

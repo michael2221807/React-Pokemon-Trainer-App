@@ -5,7 +5,7 @@ const mongoURI = 'mongodb+srv://reactapp:reactapp@cluster0-pcigr.mongodb.net/Use
 mongoose
     .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
     .catch(e => {
-        console.error('Connection error', e.message)
+        console.error('Connection error nmsl', e.message)
     })
 
 module.exports = { mongoose }  // Export the active connection.
