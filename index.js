@@ -21,4 +21,10 @@ app.use(bodyParser.json())
 
 app.use('/api', userRouter)
 
+app.use(express.static("/my-app/build"));
+
+app.get("*", (req, res) => {
+    res.sendFile("/my-app/build/index.html");
+});
+
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

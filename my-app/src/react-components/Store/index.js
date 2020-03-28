@@ -12,6 +12,12 @@ import charmander from "./charmander.gif";
 import gengar from "./gengar.gif"
 import snorlax from "./snorlax.gif"
 import squirtle from "./squirtle.gif"
+import lugia from "./lugia.gif"
+import hooh from "./hooh.gif"
+import darkrai from "./darkrai.gif"
+import rayquaza from "./rayquaza.gif"
+import giratina from "./giratina.gif"
+import megarayquaza from "./megarayquaza.gif"
 import ball from "./ball.gif";
 
 
@@ -138,6 +144,78 @@ class Store extends React.Component{
 
                     <h5 className="nameTag">Gengar</h5>
                     <h5 className="priceTag">$20</h5>
+                </div>
+                </a>
+
+                <a href="./../Lugia">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={lugia}></img>
+                    </div>
+
+                    <h5 className="nameTag">Lugia</h5>
+                    <h5 className="priceTag">$80</h5>
+                </div>
+                </a>
+
+                <a href="./../Hooh">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={hooh}></img>
+                    </div>
+
+                    <h5 className="nameTag">Hooh</h5>
+                    <h5 className="priceTag">$80</h5>
+                </div>
+                </a>
+
+                <a href="./../Darkrai">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={darkrai}></img>
+                    </div>
+
+                    <h5 className="nameTag">Darkrai</h5>
+                    <h5 className="priceTag">$80</h5>
+                </div>
+                </a>
+
+                <a href="./../Rayquaza">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={rayquaza}></img>
+                    </div>
+
+                    <h5 className="nameTag">Rayquaza</h5>
+                    <h5 className="priceTag">$80</h5>
+                </div>
+                </a>
+
+                <a href="./../Giratina">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={giratina}></img>
+                    </div>
+
+                    <h5 className="nameTag">Giratina</h5>
+                    <h5 className="priceTag">$100</h5>
+                </div>
+                </a>
+
+                <a href="./../Megarayquaza">
+                <div className="inline-picture" >
+                    <div>
+                        <div className="shape"><span id="New">New</span></div>
+                        <img className="div-pictureStore" src={megarayquaza}></img>
+                    </div>
+
+                    <h5 className="nameTag">Mega-Rayquaza</h5>
+                    <h5 className="priceTag">$200</h5>
                 </div>
                 </a>
             </div>

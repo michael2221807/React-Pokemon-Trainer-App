@@ -17,10 +17,20 @@ import Psyduck from './react-components/Psyduck';
 import Pikachu from './react-components/Pikachu';
 import Snorlax from './react-components/Snorlax';
 import Squirtle from './react-components/Squirtle';
+import Lugia from './react-components/Lugia';
+import Hooh from './react-components/Hooh';
+import Giratina from './react-components/Giratina';
+import Megarayquaza from './react-components/Megarayquaza';
+import Darkrai from './react-components/Darkrai';
+import Rayquaza from './react-components/Rayquaza';
 import UserManager from './react-components/UserManager';
 import ChangePanel from './react-components/ChangePanel';
 import TargetProfile from './react-components/TargetProfile';
 import ChangePanelPoke from './react-components/ChangePanelPoke';
+import ChangePanelUser from './react-components/ChangePanelUser';
+import SearchProfile from './react-components/SearchProfile';
+import SearchPokemonList from './react-components/SearchPokemonList';
+import SearchPokemonPage from './react-components/SearchPokemonPage';
 
 class App extends React.Component {
 
@@ -68,6 +78,26 @@ class App extends React.Component {
                             (<Snorlax state={this.state}/>)}/>
             <Route exact path='/Squirtle' render={() =>
                             (<Squirtle state={this.state}/>)}/>
+            <Route exact path='/Lugia' render={() =>
+                            (<Lugia state={this.state}/>)}/>
+            <Route exact path='/Hooh' render={() =>
+                            (<Hooh state={this.state}/>)}/>
+            <Route exact path='/Darkrai' render={() =>
+                            (<Darkrai state={this.state}/>)}/>
+            <Route exact path='/Rayquaza' render={() =>
+                            (<Rayquaza state={this.state}/>)}/>
+            <Route exact path='/Giratina' render={() =>
+                            (<Giratina state={this.state}/>)}/>
+            <Route exact path='/Megarayquaza' render={() =>
+                            (<Megarayquaza state={this.state}/>)}/>
+            <Route exact path='/ChangePanelUser' render={() =>
+                            (<ChangePanelUser state={this.state}/>)}/>
+            <Route exact path='/SearchProfile' render={() =>
+                            (<SearchProfile state={this.state}/>)}/> 
+            <Route exact path='/SearchPokemonList' render={() =>
+                            (<SearchPokemonList state={this.state}/>)}/> 
+            <Route exact path='/SearchPokemonPage' render={() =>
+                            (<SearchPokemonPage state={this.state}/>)}/> 
 
           </Switch>
         </BrowserRouter>
