@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = process.env.baseURL || "http://localhost:3000"
+const baseUrl = "https://poke-csc309-app.herokuapp.com:3000"
 
 const api = axios.create({
     baseURL: baseUrl
