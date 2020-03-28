@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'https://poke-csc309-app.herokuapp.com/api',
+    baseURL: '',
 })
 
 export const insertUser = payload => api.post(`/user`, payload)
