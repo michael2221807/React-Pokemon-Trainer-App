@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = process.env.baseURL || "https://poke-csc309-app.herokuapp.com"
+const baseUrl = process.env.baseURL
 const Url = "/api"
 
 const api = axios.create({
