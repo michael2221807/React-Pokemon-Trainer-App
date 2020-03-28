@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const baseUrl = "https://poke-csc309-app.herokuapp.com/api"
+// const baseUrl = "https://poke-csc309-app.herokuapp.com/api"
 
 const api = axios.create({
-    baseURL: baseUrl
+    url: "/api"
 })
 
 export const insertUser = payload => api.post(`/user`, payload)
