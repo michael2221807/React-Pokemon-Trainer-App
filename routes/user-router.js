@@ -10,4 +10,5 @@ router.delete('/user/:id', UserCtrl.deleteUser)
 router.get('/user/:id', UserCtrl.getUserById)
 router.get('/users', UserCtrl.getUsers)
 
+
 module.exports = router
