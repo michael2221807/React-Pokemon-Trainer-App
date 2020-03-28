@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+baseUrl = process.env.baseURL || "http://localhost:3000"
+
 const api = axios.create({
-    baseURL: '',
+    baseURL: baseUrl
 })
 
 export const insertUser = payload => api.post(`/user`, payload)
