@@ -1,8 +1,12 @@
 import axios from 'axios'
 
-// const baseUrl = "https://poke-csc309-app.herokuapp.com/api"
+const baseUrl = process.env.baseURL || "https://poke-csc309-app.herokuapp.com"
+const Url = "/api"
 
-const api = axios.create()
+const api = axios.create({
+	baseURL: baseUrl,
+	url: Url
+})
 
 export const insertUser = payload => api.post(`/user`, payload)
 export const getAllUsers = () => api.get(`/users`)

@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 // })
 
 
-app.use('/', userRouter)
+app.use('/api', userRouter)
 
 app.use(express.static( __dirname + "/my-app/build"));
 
