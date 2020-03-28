@@ -10,9 +10,13 @@ const { User } = require('./models/user-model.js')
 
 const app = express()
 const apiPort = process.env.PORT || 80
+const corsOptions = {
+  origin: 'https://poke-csc309-app.herokuapp.com/',
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cors())
 app.use(bodyParser.json())
 
 

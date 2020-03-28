@@ -16,6 +16,14 @@ export const updateUserById = (id, payload) => axios.put(`/api/user/${id}`, payl
 export const deleteUserById = id => axios.delete(`/api/user/${id}`)
 export const getUserById = id => axios.get(`/api/user/${id}`)
 
+// export const insertUser = payload => {
+// 	const url = "/api/user"
+// }
+
+// export const getAllUsers = () => {
+// 	const url = "/api/users"
+// }
+
 const apis = {
     insertUser,
     getAllUsers,
