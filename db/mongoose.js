@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const mongoURI = process.env.MONGOLAB_MAUVE_URI || 'mongodb://localhost:27017/Users'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://heroku_0d7f1kkj:p2r3cmeacgoa71758j51ap496u@ds347917.mlab.com:47917/heroku_0d7f1kkj'
 
 mongoose
     .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
