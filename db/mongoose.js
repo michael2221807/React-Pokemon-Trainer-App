@@ -10,4 +10,4 @@ mongoose
 
 module.exports = { mongoose }  // Export the active connection.
 
-// 'mongodb://localhost:27017/Users' ||
+// 'mongodb://localhost:27017/Users' || 'mongodb+srv://reactapp:reactapp@cluster0-pcigr.mongodb.net/Users?retryWrites=true&w=majority'
