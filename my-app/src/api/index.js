@@ -5,15 +5,16 @@ import axios from 'axios'
 // 	baseURL: 'http://localhost:3000/api',
 // })
 
-const api = axios.create({
-	baseURL: '/api',
-})
+// const api = axios.create({
+// 	baseURL: '/api',
+// })
 
-export const insertUser = payload => api.post(`/user`, payload)
-export const getAllUsers = () => api.get(`/users`)
-export const updateUserById = (id, payload) => api.put(`/user/${id}`, payload)
-export const deleteUserById = id => api.delete(`/user/${id}`)
-export const getUserById = id => api.get(`/user/${id}`)
+
+export const insertUser = payload => axios.post(`/api/user`, payload)
+export const getAllUsers = () => axios.get(`/api/users`)
+export const updateUserById = (id, payload) => axios.put(`/api/user/${id}`, payload)
+export const deleteUserById = id => axios.delete(`/api/user/${id}`)
+export const getUserById = id => axios.get(`/api/user/${id}`)
 
 const apis = {
     insertUser,
