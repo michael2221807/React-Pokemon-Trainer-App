@@ -7,7 +7,7 @@ const userRouter = require('./routes/user-router')
 const session = require("express-session");
 
 const app = express()
-const apiPort = process.env.PORT || 3000
+const apiPort = process.env.PORT || 80
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
