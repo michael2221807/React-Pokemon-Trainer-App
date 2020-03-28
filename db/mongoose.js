@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/Users'
+const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://reactapp:reactapp@cluster0-pcigr.mongodb.net/Users?retryWrites=true&w=majority'
 
 mongoose
     .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
@@ -9,3 +9,5 @@ mongoose
     })
 
 module.exports = { mongoose }  // Export the active connection.
+
+// 'mongodb://localhost:27017/Users' ||
