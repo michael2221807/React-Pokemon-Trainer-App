@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const mongoURI = 'mongodb+srv://reactapp:reactapp@cluster0-pcigr.mongodb.net/Users?retryWrites=true&w=majority'
+const mongoURI = process.env.MONGOLAB_MAUVE_URI || 'mongodb://localhost:27017/Users'
 
 mongoose
     .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
