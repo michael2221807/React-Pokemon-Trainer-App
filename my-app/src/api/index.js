@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = "https://poke-csc309-app.herokuapp.com:3000"
+const baseUrl = "https://poke-csc309-app.herokuapp.com"
 
 const api = axios.create({
     baseURL: baseUrl
