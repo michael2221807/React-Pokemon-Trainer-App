@@ -61,8 +61,7 @@ class Charmander extends React.Component{
             window.alert('You don\'t have enough money!')
         }else {
             user.money -= price
-        } 
-        const charmander = { pokename: "Charmander", 
+            const charmander = { pokename: "Charmander", 
                               pokeid: 3, 
                               HP: 25, 
                               MaxHP: 25, 
@@ -74,39 +73,40 @@ class Charmander extends React.Component{
                               lonliness: 0
                           }
 
-        charmander.pokeid = this.idGenerator()
-        user.pokemon.push(charmander)
+            charmander.pokeid = this.idGenerator()
+            user.pokemon.push(charmander)
 
-        await api.updateUserById(user.id, user).then((res) => {
-            window.alert(`Purchased Success!`)
-            this.setState({
-                currentUser: this.state.currentUser[0]
-            })
-        })
-
-        this.setState({ isLoading: true })
-
-        await api.getAllUsers().then(users => {
-            this.setState({
-                users: users.data.data
-            })
-        })
-
-        const userlist = this.state.users
-        userlist.map(u => {
-            if (u.isCurrent) {
-                // console.log(u)
-                this.state.currentUser = []
-                this.state.currentUser.push(u)
+            await api.updateUserById(user.id, user).then((res) => {
+                window.alert(`Purchased Success!`)
                 this.setState({
-                    currentUser: this.state.currentUser,
-                    isLoading: false
+                    currentUser: this.state.currentUser[0]
                 })
-               
-            }
-            this.setState({ isLoading: false })
-        })
-        window.location.reload();
+            })
+
+            this.setState({ isLoading: true })
+
+            await api.getAllUsers().then(users => {
+                this.setState({
+                    users: users.data.data
+                })
+            })
+
+            const userlist = this.state.users
+            userlist.map(u => {
+                if (u.isCurrent) {
+                    // console.log(u)
+                    this.state.currentUser = []
+                    this.state.currentUser.push(u)
+                    this.setState({
+                        currentUser: this.state.currentUser,
+                        isLoading: false
+                    })
+                   
+                }
+                this.setState({ isLoading: false })
+            })
+            window.location.reload();
+        } 
 
         
     };

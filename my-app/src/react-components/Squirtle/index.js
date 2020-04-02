@@ -61,55 +61,52 @@ class Squirtle extends React.Component{
             window.alert('You don\'t have enough money!')
         }else {
             user.money -= price
-        } 
+            const squirtle= { pokename: "Squirtle", 
+                      pokeid: 5, 
+                      HP: 15, 
+                      MaxHP: 20, 
+                      Satiety: 6, 
+                      MaxSatiety: 20, 
+                      Experience: 0, 
+                      MaxExperience: 100, 
+                      level: 0, 
+                      lonliness: 0
+                  }
 
-        const squirtle= { pokename: "Squirtle", 
-                              pokeid: 5, 
-                              HP: 15, 
-                              MaxHP: 20, 
-                              Satiety: 6, 
-                              MaxSatiety: 20, 
-                              Experience: 0, 
-                              MaxExperience: 100, 
-                              level: 0, 
-                              lonliness: 0
-                          }
+            squirtle.pokeid = this.idGenerator()
+            user.pokemon.push(squirtle)
 
-        squirtle.pokeid = this.idGenerator()
-        user.pokemon.push(squirtle)
-
-        await api.updateUserById(user.id, user).then((res) => {
-            window.alert(`Purchased Success!`)
-            this.setState({
-                currentUser: this.state.currentUser[0]
-            })
-        })
-
-        this.setState({ isLoading: true })
-
-        await api.getAllUsers().then(users => {
-            this.setState({
-                users: users.data.data
-            })
-        })
-
-        const userlist = this.state.users
-        userlist.map(u => {
-            if (u.isCurrent) {
-                // console.log(u)
-                this.state.currentUser = []
-                this.state.currentUser.push(u)
+            await api.updateUserById(user.id, user).then((res) => {
+                window.alert(`Purchased Success!`)
                 this.setState({
-                    currentUser: this.state.currentUser,
-                    isLoading: false
+                    currentUser: this.state.currentUser[0]
                 })
-               
-            }
-            this.setState({ isLoading: false })
-        })
-        window.location.reload();
+            })
 
-        
+            this.setState({ isLoading: true })
+
+            await api.getAllUsers().then(users => {
+                this.setState({
+                    users: users.data.data
+                })
+            })
+
+            const userlist = this.state.users
+            userlist.map(u => {
+                if (u.isCurrent) {
+                    // console.log(u)
+                    this.state.currentUser = []
+                    this.state.currentUser.push(u)
+                    this.setState({
+                        currentUser: this.state.currentUser,
+                        isLoading: false
+                    })
+                   
+                }
+                this.setState({ isLoading: false })
+            })
+            window.location.reload();
+        }      
     };
 
     idGenerator = () => {

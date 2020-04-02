@@ -10,14 +10,14 @@ import pikachu from "./pikachu.gif";
 import psyduck from "./psyduck.gif";
 import charmander from "./charmander.gif";
 import gengar from "./gengar.gif"
-import snorlax from "./snorlax.gif"
+import charizard from "./charizard.gif"
 import squirtle from "./squirtle.gif"
-import lugia from "./lugia.gif"
-import hooh from "./hooh.gif"
-import darkrai from "./darkrai.gif"
-import rayquaza from "./rayquaza.gif"
-import giratina from "./giratina.gif"
-import megarayquaza from "./megarayquaza.gif"
+import dragonite from "./dragonite.gif"
+import mime from "./mime.gif"
+import pidgeot from "./pidgeot.gif"
+import alakazam from "./alakazam.gif"
+import ivysaur from "./ivysaur.gif"
+import ninetales from "./ninetales.gif"
 import ball from "./ball.gif";
 
 
@@ -111,15 +111,15 @@ class Store extends React.Component{
                 </div>
                 </a>
 
-                <a href="./../Snorlax">
+                <a href="./../Charizard">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={snorlax}></img>
+                        <img className="div-pictureStore" src={charizard}></img>
                     </div>
 
-                    <h5 className="nameTag">Snorlax</h5>
-                    <h5 className="priceTag">$20</h5>
+                    <h5 className="nameTag">Charizard</h5>
+                    <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
 
@@ -147,75 +147,75 @@ class Store extends React.Component{
                 </div>
                 </a>
 
-                <a href="./../Lugia">
+                <a href="./../Dragonite">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={lugia}></img>
+                        <img className="div-pictureStore" src={dragonite}></img>
                     </div>
 
-                    <h5 className="nameTag">Lugia</h5>
+                    <h5 className="nameTag">Dragonite</h5>
                     <h5 className="priceTag">$80</h5>
                 </div>
                 </a>
 
-                <a href="./../Hooh">
+                <a href="./../Mime">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={hooh}></img>
+                        <img className="div-pictureStore" src={mime}></img>
                     </div>
 
-                    <h5 className="nameTag">Hooh</h5>
-                    <h5 className="priceTag">$80</h5>
+                    <h5 className="nameTag">Mime</h5>
+                    <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
 
-                <a href="./../Darkrai">
+                <a href="./../Pidgeot">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={darkrai}></img>
+                        <img className="div-pictureStore" src={pidgeot}></img>
                     </div>
 
-                    <h5 className="nameTag">Darkrai</h5>
-                    <h5 className="priceTag">$80</h5>
+                    <h5 className="nameTag">Pidgeot</h5>
+                    <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
 
-                <a href="./../Rayquaza">
+                <a href="./../Alakazam">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={rayquaza}></img>
+                        <img className="div-pictureStore" src={alakazam}></img>
                     </div>
 
-                    <h5 className="nameTag">Rayquaza</h5>
-                    <h5 className="priceTag">$80</h5>
+                    <h5 className="nameTag">Alakazam</h5>
+                    <h5 className="priceTag">$60</h5>
                 </div>
                 </a>
 
-                <a href="./../Giratina">
+                <a href="./../Ivysaur">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={giratina}></img>
+                        <img className="div-pictureStore" src={ivysaur}></img>
                     </div>
 
-                    <h5 className="nameTag">Giratina</h5>
-                    <h5 className="priceTag">$100</h5>
+                    <h5 className="nameTag">Ivysaur</h5>
+                    <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
 
-                <a href="./../Megarayquaza">
+                <a href="./../Ninetales">
                 <div className="inline-picture" >
                     <div>
                         <div className="shape"><span id="New">New</span></div>
-                        <img className="div-pictureStore" src={megarayquaza}></img>
+                        <img className="div-pictureStore" src={ninetales}></img>
                     </div>
 
-                    <h5 className="nameTag">Mega-Rayquaza</h5>
-                    <h5 className="priceTag">$200</h5>
+                    <h5 className="nameTag">Ninetales</h5>
+                    <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
             </div>

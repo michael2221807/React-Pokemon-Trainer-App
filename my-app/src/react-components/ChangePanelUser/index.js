@@ -195,7 +195,7 @@ class ChangePanelUser extends React.Component {
 
         <div id='glass'>
 
-          <Form id="form">
+          <Form id="form3">
 
             <Form.Field>
               <label>Username</label>

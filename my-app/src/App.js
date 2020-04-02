@@ -15,14 +15,14 @@ import Charmander from './react-components/Charmander';
 import Gengar from './react-components/Gengar';
 import Psyduck from './react-components/Psyduck';
 import Pikachu from './react-components/Pikachu';
-import Snorlax from './react-components/Snorlax';
+import Charizard from './react-components/Charizard';
 import Squirtle from './react-components/Squirtle';
-import Lugia from './react-components/Lugia';
-import Hooh from './react-components/Hooh';
-import Giratina from './react-components/Giratina';
-import Megarayquaza from './react-components/Megarayquaza';
-import Darkrai from './react-components/Darkrai';
-import Rayquaza from './react-components/Rayquaza';
+import Dragonite from './react-components/Dragonite';
+import Mime from './react-components/Mime';
+import Ivysaur from './react-components/Ivysaur';
+import Ninetales from './react-components/Ninetales';
+import Pidgeot from './react-components/Pidgeot';
+import Alakazam from './react-components/Alakazam';
 import UserManager from './react-components/UserManager';
 import ChangePanel from './react-components/ChangePanel';
 import TargetProfile from './react-components/TargetProfile';
@@ -74,22 +74,22 @@ class App extends React.Component {
                             (<Psyduck state={this.state}/>)}/>
             <Route exact path='/Pikachu' render={() =>
                             (<Pikachu state={this.state}/>)}/>
-            <Route exact path='/Snorlax' render={() =>
-                            (<Snorlax state={this.state}/>)}/>
+            <Route exact path='/Charizard' render={() =>
+                            (<Charizard state={this.state}/>)}/>
             <Route exact path='/Squirtle' render={() =>
                             (<Squirtle state={this.state}/>)}/>
-            <Route exact path='/Lugia' render={() =>
-                            (<Lugia state={this.state}/>)}/>
-            <Route exact path='/Hooh' render={() =>
-                            (<Hooh state={this.state}/>)}/>
-            <Route exact path='/Darkrai' render={() =>
-                            (<Darkrai state={this.state}/>)}/>
-            <Route exact path='/Rayquaza' render={() =>
-                            (<Rayquaza state={this.state}/>)}/>
-            <Route exact path='/Giratina' render={() =>
-                            (<Giratina state={this.state}/>)}/>
-            <Route exact path='/Megarayquaza' render={() =>
-                            (<Megarayquaza state={this.state}/>)}/>
+            <Route exact path='/Dragonite' render={() =>
+                            (<Dragonite state={this.state}/>)}/>
+            <Route exact path='/Mime' render={() =>
+                            (<Mime state={this.state}/>)}/>
+            <Route exact path='/Pidgeot' render={() =>
+                            (<Pidgeot state={this.state}/>)}/>
+            <Route exact path='/Alakazam' render={() =>
+                            (<Alakazam state={this.state}/>)}/>
+            <Route exact path='/Ivysaur' render={() =>
+                            (<Ivysaur state={this.state}/>)}/>
+            <Route exact path='/Ninetales' render={() =>
+                            (<Ninetales state={this.state}/>)}/>
             <Route exact path='/ChangePanelUser' render={() =>
                             (<ChangePanelUser state={this.state}/>)}/>
             <Route exact path='/SearchProfile' render={() =>

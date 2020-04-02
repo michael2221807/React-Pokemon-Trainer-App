@@ -3,10 +3,44 @@ import Nav2 from "./../Nav2";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-import Psyduck from "./psyduck.gif";
+import Psyduck1 from "./psyduck-1.gif";
 import Psyduck2 from "./psyduck-2.gif";
 import Psyduck3 from "./psyduck-3.gif"
-import Pikachu from "./pikachu.gif";
+import Pikachu1 from "./pikachu-1.gif";
+import Pikachu2 from "./pikachu-2.gif";
+import Pikachu3 from "./pikachu-3.gif";
+import Alakazam1 from "./alakazam-1.gif";
+import Alakazam2 from "./alakazam-2.gif";
+import Alakazam3 from "./alakazam-3.gif";
+import Charizard1 from "./charizard-1.gif";
+import Charizard2 from "./charizard-2.gif";
+import Charizard3 from "./charizard-3.gif";
+import Dragonite1 from "./dragonite-1.gif";
+import Dragonite2 from "./dragonite-2.gif";
+import Dragonite3 from "./dragonite-3.gif";
+import Gengar1 from "./gengar-1.gif";
+import Gengar2 from "./gengar-2.gif";
+import Gengar3 from "./gengar-3.gif";
+import Ivysaur1 from "./ivysaur-1.gif";
+import Ivysaur2 from "./ivysaur-2.gif";
+import Ivysaur3 from "./ivysaur-3.gif";
+import Mime1 from "./mime-1.gif";
+import Mime2 from "./mime-2.gif";
+import Mime3 from "./mime-3.gif";
+import Ninetales1 from "./ninetales-1.gif";
+import Ninetales2 from "./ninetales-2.gif";
+import Ninetales3 from "./ninetales-3.gif";
+import Pidgeot1 from "./pidgeot-1.gif";
+import Pidgeot2 from "./pidgeot-2.gif";
+import Pidgeot3 from "./pidgeot-3.gif";
+import Squirtle1 from "./squirtle-1.gif";
+import Squirtle2 from "./squirtle-2.gif";
+import Squirtle3 from "./squirtle-3.gif";
+import Charmander1 from "./charmander-1.gif";
+import Charmander2 from "./charmander-2.gif";
+import Charmander3 from "./charmander-3.gif";
+
+
 import api from "./../../api"
 
 import "./styles.css"
@@ -109,9 +143,11 @@ class PokemonPage extends React.Component {
 		const lonliness = pokemon[0].lonliness
 
 		if (Experience < MaxExperience && (Satiety - 5) > 0) {
-			pokemon[0].Experience += 10
-			pokemon[0].Satiety -= 5
+			pokemon[0].Experience += 50
+			pokemon[0].Satiety -= 15
 			pokemon[0].sprite = 2
+			pokemon[0].lonliness += 20
+			currentUser[0].money -= 5
 			currentUser[0].pokemon.map(poke => {
 				if (poke.isTarget) {
 					poke = pokemon[0]
@@ -135,6 +171,8 @@ class PokemonPage extends React.Component {
 			pokemon[0].MaxHP *= 2
 			pokemon[0].MaxSatiety *= 2
 			pokemon[0].sprite = 2
+			pokemon[0].lonliness += 20
+			currentUser[0].money -= 5
 			currentUser[0].pokemon.map(poke => {
 				if (poke.isTarget) {
 					poke = pokemon[0]
@@ -172,6 +210,7 @@ class PokemonPage extends React.Component {
 					poke = pokemon[0]
 				}
 			})
+			currentUser[0].money += 5 * (pokemon[0].level + 1)
 			this.setState({
 				currentUser: currentUser,
 				pokemon: pokemon
@@ -202,6 +241,7 @@ class PokemonPage extends React.Component {
 		if (Satiety < MaxSatiety) {
 			pokemon[0].Satiety += 1
 			pokemon[0].sprite = 2
+			currentUser[0].money -= 1
 			currentUser[0].pokemon.map(poke => {
 				if (poke.isTarget) {
 					poke = pokemon[0]
@@ -222,6 +262,7 @@ class PokemonPage extends React.Component {
 		} else if (Satiety >= MaxSatiety && HP < MaxHP) {
 			pokemon[0].HP += 1
 			pokemon[0].sprite = 2
+			currentUser[0].money -= 1
 			currentUser[0].pokemon.map(poke => {
 				if (poke.isTarget) {
 					poke = pokemon[0]
@@ -243,6 +284,7 @@ class PokemonPage extends React.Component {
 		} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness > 0) {
 			pokemon[0].lonliness -= 1
 			pokemon[0].sprite = 2
+			currentUser[0].money -= 1
 			currentUser[0].pokemon.map(poke => {
 				if (poke.isTarget) {
 					poke = pokemon[0]
@@ -263,6 +305,7 @@ class PokemonPage extends React.Component {
 			if (Experience < MaxExperience) {
 				pokemon[0].Experience += 1
 				pokemon[0].sprite = 2
+				currentUser[0].money -= 1
 				currentUser[0].pokemon.map(poke => {
 					if (poke.isTarget) {
 						poke = pokemon[0]
@@ -286,6 +329,7 @@ class PokemonPage extends React.Component {
 				pokemon[0].MaxHP *= 2
 				pokemon[0].MaxSatiety *= 2
 				pokemon[0].sprite = 2
+				currentUser[0].money -= 1
 				currentUser[0].pokemon.map(poke => {
 					if (poke.isTarget) {
 						poke = pokemon[0]
@@ -332,7 +376,7 @@ class PokemonPage extends React.Component {
 					{function(){
 						if (pokename === "Psyduck"){
 							if (sprite === 1) {
-								return <img class="poke-img" src={Psyduck} style={{
+								return <img class="poke-img" src={Psyduck1} style={{
 																					position: 'absolute',
 																					width: '300px',
 																					height: '300px',
@@ -358,14 +402,310 @@ class PokemonPage extends React.Component {
 							}
 						}
 						if (pokename === "Pikachu"){
-							return <img clasName="poke-img" src={Pikachu} style={{
+							if (sprite === 1) {
+								return <img class="poke-img" src={Pikachu1} style={{
 																					position: 'absolute',
 																					width: '300px',
 																					height: '300px',
 																					top: '21%',
 																					left: '1%'
 																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Pikachu2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Pikachu3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
 						}
+						if (pokename === "Alakazam"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Alakazam1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Alakazam2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Alakazam3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+						if (pokename === "Charizard"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Charizard1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Charizard2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Charizard3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+						if (pokename === "Dragonite"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Dragonite1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Dragonite2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Dragonite3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Gengar"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Gengar1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Gengar2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Gengar3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Ivysaur"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Ivysaur1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Ivysaur2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Ivysaur3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Mime"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Mime1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Mime2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Mime3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Ninetales"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Ninetales1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Ninetales2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Ninetales3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Pidgeot"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Pidgeot1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Pidgeot2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Pidgeot3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Squirtle"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Squirtle1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Squirtle2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Squirtle3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Charmander"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Charmander1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Charmander2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Charmander3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
 					}()}
 
 				</div>

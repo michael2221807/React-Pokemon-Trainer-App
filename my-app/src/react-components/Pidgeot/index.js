@@ -6,9 +6,9 @@ import api from "../../api"
 import "./styles.css";
 
 import background from "./background.jpg";
-import pikachu from "../Store/pikachu.gif";
+import pidgeot from "../Store/pidgeot.gif";
 
-class Pikachu extends React.Component{
+class Pidgeot extends React.Component{
 
     state = {
             isLoading: false,
@@ -56,25 +56,25 @@ class Pikachu extends React.Component{
         //create a new Pokemon item, and add it to user
         //reduce the money users have
         const user = this.state.currentUser[0]
-        const price = 20
+        const price = 40
         if (user.money < price) {
             window.alert('You don\'t have enough money!')
         }else {
             user.money -= price
-            const pikachu = { pokename: "Pikachu", 
-                          pokeid: 2, 
-                          HP: 15, 
-                          MaxHP: 15, 
-                          Satiety: 8, 
-                          MaxSatiety: 8, 
+            const pidgeot = { pokename: "Pidgeot", 
+                          pokeid: 9, 
+                          HP: 20, 
+                          MaxHP: 30, 
+                          Satiety: 20, 
+                          MaxSatiety: 20, 
                           Experience: 0, 
                           MaxExperience: 100, 
                           level: 0, 
                           lonliness: 0
                         }
 
-            pikachu.pokeid = this.idGenerator()
-            user.pokemon.push(pikachu)
+            pidgeot.pokeid = this.idGenerator()
+            user.pokemon.push(pidgeot)
 
             await api.updateUserById(user.id, user).then((res) => {
                 window.alert(`Purchased Success!`)
@@ -107,6 +107,8 @@ class Pikachu extends React.Component{
             })
             window.location.reload();
         } 
+
+        
 
         
     };
@@ -144,7 +146,7 @@ class Pikachu extends React.Component{
                     <div className="inline-pictures" >
                         <div>
 
-                            <img className="div-picture" src={pikachu}></img>
+                            <img className="div-picture" src={pidgeot}></img>
                         </div>
 
 
@@ -153,19 +155,16 @@ class Pikachu extends React.Component{
                     <div className="inline-documents">
 
                         <div id="nameTag-and-priceTag-wrapper">
-                            <h5 className="nameTag">Pikachu</h5>
-                            <h5 className="priceTag">$20</h5>
+                            <h5 className="nameTag">pidgeot</h5>
+                            <h5 className="priceTag">$40</h5>
 
                             <div id='intro'>
-                                <p>Pikachu is a short, chubby rodent Pokémon. 
-                                    It is covered in yellow fur with two 
-                                    horizontal brown stripes on its back. 
-                                    It has a small mouth, long, pointed ears 
-                                    with black tips, and brown eyes. Each cheek 
-                                    is a red circle that contains a pouch for 
-                                    electricity storage. It has short forearms 
-                                    with five fingers on each paw, and its feet 
-                                    each have three toes.  </p>
+                                <p>Pidgeot is an avian Pokémon with large 
+                                    wings, sharp talons, and a short, hooked 
+                                    beak. Its glossy plumage is mostly brown 
+                                    with cream-colored underparts and flight 
+                                    feathers. Its head has a decorated crest 
+                                    that is nearly as long as its body.  </p>
                             </div>
                             
                         </div>
@@ -181,4 +180,4 @@ class Pikachu extends React.Component{
     }
 
 }
-export default Pikachu;
+export default Pidgeot;

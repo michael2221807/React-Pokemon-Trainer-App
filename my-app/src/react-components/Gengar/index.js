@@ -61,9 +61,7 @@ class Gengar extends React.Component{
             window.alert('You don\'t have enough money!')
         }else {
             user.money -= price
-        } 
-
-        const psyduck = { pokename: "Psyduck", 
+            const psyduck = { pokename: "Psyduck", 
                           pokeid: 1, 
                           HP: 1, 
                           MaxHP: 10, 
@@ -75,62 +73,63 @@ class Gengar extends React.Component{
                           lonliness: 15
                         }
 
-        const pikachu = { pokename: "Pikachu", 
-                          pokeid: 2, 
-                          HP: 15, 
-                          MaxHP: 15, 
-                          Satiety: 8, 
-                          MaxSatiety: 8, 
-                          Experience: 0, 
-                          MaxExperience: 100, 
-                          level: 0, 
-                          lonliness: 0
-                        }
-        const gengar = { pokename: "Gengar", 
-                              pokeid: 6, 
-                              HP: 40, 
-                              MaxHP: 50, 
-                              Satiety: 2, 
+            const pikachu = { pokename: "Pikachu", 
+                              pokeid: 2, 
+                              HP: 15, 
+                              MaxHP: 15, 
+                              Satiety: 8, 
                               MaxSatiety: 8, 
                               Experience: 0, 
                               MaxExperience: 100, 
                               level: 0, 
                               lonliness: 0
-                          }
+                            }
+            const gengar = { pokename: "Gengar", 
+                                  pokeid: 6, 
+                                  HP: 40, 
+                                  MaxHP: 50, 
+                                  Satiety: 2, 
+                                  MaxSatiety: 8, 
+                                  Experience: 0, 
+                                  MaxExperience: 100, 
+                                  level: 0, 
+                                  lonliness: 0
+                              }
 
-        gengar.pokeid = this.idGenerator()
-        user.pokemon.push(gengar)
+            gengar.pokeid = this.idGenerator()
+            user.pokemon.push(gengar)
 
-        await api.updateUserById(user.id, user).then((res) => {
-            window.alert(`Purchased Success!`)
-            this.setState({
-                currentUser: this.state.currentUser[0]
-            })
-        })
-
-        this.setState({ isLoading: true })
-
-        await api.getAllUsers().then(users => {
-            this.setState({
-                users: users.data.data
-            })
-        })
-
-        const userlist = this.state.users
-        userlist.map(u => {
-            if (u.isCurrent) {
-                // console.log(u)
-                this.state.currentUser = []
-                this.state.currentUser.push(u)
+            await api.updateUserById(user.id, user).then((res) => {
+                window.alert(`Purchased Success!`)
                 this.setState({
-                    currentUser: this.state.currentUser,
-                    isLoading: false
+                    currentUser: this.state.currentUser[0]
                 })
-               
-            }
-            this.setState({ isLoading: false })
-        })
-        window.location.reload();
+            })
+
+            this.setState({ isLoading: true })
+
+            await api.getAllUsers().then(users => {
+                this.setState({
+                    users: users.data.data
+                })
+            })
+
+            const userlist = this.state.users
+            userlist.map(u => {
+                if (u.isCurrent) {
+                    // console.log(u)
+                    this.state.currentUser = []
+                    this.state.currentUser.push(u)
+                    this.setState({
+                        currentUser: this.state.currentUser,
+                        isLoading: false
+                    })
+                   
+                }
+                this.setState({ isLoading: false })
+            })
+            window.location.reload();
+        } 
 
         
     };
