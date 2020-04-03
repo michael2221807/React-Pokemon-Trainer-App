@@ -39,6 +39,12 @@ import Squirtle3 from "./squirtle-3.gif";
 import Charmander1 from "./charmander-1.gif";
 import Charmander2 from "./charmander-2.gif";
 import Charmander3 from "./charmander-3.gif";
+import Charmeleon1 from "./charmeleon-1.gif";
+import Charmeleon2 from "./charmeleon-2.gif";
+import Charmeleon3 from "./charmeleon-3.gif";
+import Raichu1 from "./raichu-1.gif";
+import Raichu2 from "./raichu-2.gif";
+import Raichu3 from "./raichu-3.gif";
 
 
 import api from "./../../api"
@@ -101,7 +107,7 @@ class PokemonPage extends React.Component {
 
 	          	pokemons.map(poke => {
 	          		if (poke.isTarget) {
-	          			this.state.pokemon = []
+      					this.state.pokemon = []
 	          			this.state.pokemon.push(poke)
 	          			this.setState({
 	          				pokemon: this.state.pokemon
@@ -142,9 +148,9 @@ class PokemonPage extends React.Component {
 		const MaxExperience = pokemon[0].MaxExperience
 		const lonliness = pokemon[0].lonliness
 
-		if (Experience < MaxExperience && (Satiety - 5) > 0) {
+		if ((Experience + 50) < MaxExperience && (Satiety - 5) > 0) {
 			pokemon[0].Experience += 50
-			pokemon[0].Satiety -= 15
+			pokemon[0].Satiety -= 5
 			pokemon[0].sprite = 2
 			pokemon[0].lonliness += 20
 			currentUser[0].money -= 5
@@ -164,7 +170,7 @@ class PokemonPage extends React.Component {
 				this.spriteChange(1)
 			}.bind(this), 2500);
 
-		} else if (Experience >= MaxExperience && (Satiety - 5) > 0) {
+		} else if ((Experience + 50) >= MaxExperience && (Satiety - 5) > 0) {
 			pokemon[0].level += 1
 			pokemon[0].Experience = 0
 			pokemon[0].MaxExperience *= 2
@@ -173,6 +179,19 @@ class PokemonPage extends React.Component {
 			pokemon[0].sprite = 2
 			pokemon[0].lonliness += 20
 			currentUser[0].money -= 5
+
+			if (pokemon[0].level === 10) {
+				if (pokemon[0].pokename === "Pikachu"){
+					pokemon[0].pokename = "Raichu"
+					window.alert("Pikachu has evolved into Raichu!")
+				}
+				if (pokemon[0].pokename === "Charmander") {
+					pokemon[0].pokename = "Charmeleon"
+					window.alert("Charmander has evolved into Charmeleon!")
+				}
+			}
+
+
 			currentUser[0].pokemon.map(poke => {
 				if (poke.isTarget) {
 					poke = pokemon[0]
@@ -330,6 +349,21 @@ class PokemonPage extends React.Component {
 				pokemon[0].MaxSatiety *= 2
 				pokemon[0].sprite = 2
 				currentUser[0].money -= 1
+
+
+				if (pokemon[0].level === 10) {
+					if (pokemon[0].pokename === "Pikachu"){
+						pokemon[0].pokename = "Raichu"
+						window.alert("Pikachu has evolved into Raichu!")
+					}
+					if (pokemon[0].pokename === "Charmander") {
+						pokemon[0].pokename = "Charmeleon"
+						window.alert("Charmander has evolved into Charmeleon!")
+					}
+				}
+
+
+
 				currentUser[0].pokemon.map(poke => {
 					if (poke.isTarget) {
 						poke = pokemon[0]
@@ -697,6 +731,62 @@ class PokemonPage extends React.Component {
 																				}}/>
 							}else if (sprite === 3) {
 								return <img class="poke-img" src={Charmander3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Charmeleon"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Charmeleon1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Charmeleon2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Charmeleon3} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}
+						}
+
+						if (pokename === "Raichu"){
+							if (sprite === 1) {
+								return <img class="poke-img" src={Raichu1} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							} else if (sprite === 2) {
+								return <img clas="poke-img" src={Raichu2} style={{
+																					position: 'absolute',
+																					width: '300px',
+																					height: '300px',
+																					top: '21%',
+																					left: '1%'
+																				}}/>
+							}else if (sprite === 3) {
+								return <img class="poke-img" src={Raichu3} style={{
 																					position: 'absolute',
 																					width: '300px',
 																					height: '300px',

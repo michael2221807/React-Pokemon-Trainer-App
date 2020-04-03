@@ -248,7 +248,7 @@ class ChangePanelPoke extends React.Component {
 
 
     return (
-      <div id="App2">
+      <div id="App21">
 
         <div id="nav-bar1" style={nav1}>
           <Nav 
@@ -270,7 +270,7 @@ class ChangePanelPoke extends React.Component {
 
         <div id='glass'>
 
-          <Form id="form2">
+          <Form id="form21">
 
             <Form.Field>
               <label>Pokename</label>

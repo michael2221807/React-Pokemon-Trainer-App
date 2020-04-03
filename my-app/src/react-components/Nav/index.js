@@ -32,8 +32,8 @@ class Nav extends React.Component {
 		        </div>
       		</li>
 	      	<li><a href="./../">Home</a></li>
-	      	<li><a>Trainer: {name}</a></li>
-	      	<li><a>Balance: {money}</a></li>
+	      	<li><a>You Have Not Logged in yet...</a></li>
+	      	<li><a>Please Login or sign up below...</a></li>
           
 
 	     	

@@ -28,6 +28,10 @@ import Squirtle1 from "./../PokemonPage/squirtle-1.gif";
 
 import Charmander1 from "./../PokemonPage/charmander-1.gif";
 
+import Charmeleon1 from "./../PokemonPage/charmeleon-1.gif";
+
+import Raichu1 from "./../PokemonPage/raichu-1.gif";
+
 
 
 class Pokemon extends React.Component {
@@ -79,6 +83,12 @@ class Pokemon extends React.Component {
 					}
 					if (pokemon.pokename === "Charmander"){
 						return <img src={Charmander1}/>
+					}
+					if (pokemon.pokename === "Charmeleon"){
+						return <img src={Charmeleon1}/>
+					}
+					if (pokemon.pokename === "Raichu"){
+						return <img src={Raichu1}/>
 					}
 					
 

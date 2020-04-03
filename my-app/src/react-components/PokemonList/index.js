@@ -11,6 +11,9 @@ class PokemonList extends React.Component {
 
 	onClickhandler = async (target, pokemon) => {
 		// console.log(target)
+		target.pokemon.map(poke => {
+			poke.isTarget = false
+		})
 		pokemon.isTarget = true
 		await api.updateUserById(target.id, target).then((res) => {
 			// window.alert(`Change Success!`)

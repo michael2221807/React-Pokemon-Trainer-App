@@ -1,4 +1,4 @@
-#App2 {
+#App21 {
 	background: url(jieni.jpg);
 	background-attachment: fixed;
 	height:1000px;
@@ -11,7 +11,7 @@
 	position: relative;
 }*/
 
-#form2
+#form21
 {	
 	position:absolute;
 	margin-top: 150px;
@@ -37,7 +37,7 @@
 	
 }
 
-#form2::before {
+#form21::before {
 	content: '';
 	position: absolute;
 	top:0;
@@ -52,7 +52,7 @@
 
 }
 
-#form2::after {
+#form21::after {
   content: "";
   position: absolute;
   top:0;

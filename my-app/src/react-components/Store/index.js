@@ -81,7 +81,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={pikachu}></img>
                     </div>
 
-                    <h5 className="nameTag">Pikachu</h5>
+                    <h5 className="nameTags">Pikachu</h5>
                     <h5 className="priceTag">$20</h5>
                 </div>
                 </a>
@@ -94,7 +94,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={psyduck}></img>
                     </div>
 
-                    <h5 className="nameTag">Psyduck</h5>
+                    <h5 className="nameTags">Psyduck</h5>
                     <h5 className="priceTag">$20</h5>
                 </div>
                 </a>
@@ -106,7 +106,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={charmander}></img>
                     </div>
 
-                    <h5 className="nameTag">Charmander</h5>
+                    <h5 className="nameTags">Charmander</h5>
                     <h5 className="priceTag">$20</h5>
                 </div>
                 </a>
@@ -118,7 +118,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={charizard}></img>
                     </div>
 
-                    <h5 className="nameTag">Charizard</h5>
+                    <h5 className="nameTags">Charizard</h5>
                     <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
@@ -130,7 +130,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={squirtle}></img>
                     </div>
 
-                    <h5 className="nameTag">Squirtle</h5>
+                    <h5 className="nameTags">Squirtle</h5>
                     <h5 className="priceTag">$20</h5>
                 </div>
                 </a>
@@ -142,7 +142,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={gengar}></img>
                     </div>
 
-                    <h5 className="nameTag">Gengar</h5>
+                    <h5 className="nameTags">Gengar</h5>
                     <h5 className="priceTag">$20</h5>
                 </div>
                 </a>
@@ -154,7 +154,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={dragonite}></img>
                     </div>
 
-                    <h5 className="nameTag">Dragonite</h5>
+                    <h5 className="nameTags">Dragonite</h5>
                     <h5 className="priceTag">$80</h5>
                 </div>
                 </a>
@@ -166,7 +166,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={mime}></img>
                     </div>
 
-                    <h5 className="nameTag">Mime</h5>
+                    <h5 className="nameTags">Mime</h5>
                     <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
@@ -178,7 +178,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={pidgeot}></img>
                     </div>
 
-                    <h5 className="nameTag">Pidgeot</h5>
+                    <h5 className="nameTags">Pidgeot</h5>
                     <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
@@ -190,7 +190,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={alakazam}></img>
                     </div>
 
-                    <h5 className="nameTag">Alakazam</h5>
+                    <h5 className="nameTags">Alakazam</h5>
                     <h5 className="priceTag">$60</h5>
                 </div>
                 </a>
@@ -202,7 +202,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={ivysaur}></img>
                     </div>
 
-                    <h5 className="nameTag">Ivysaur</h5>
+                    <h5 className="nameTags">Ivysaur</h5>
                     <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
@@ -214,7 +214,7 @@ class Store extends React.Component{
                         <img className="div-pictureStore" src={ninetales}></img>
                     </div>
 
-                    <h5 className="nameTag">Ninetales</h5>
+                    <h5 className="nameTags">Ninetales</h5>
                     <h5 className="priceTag">$40</h5>
                 </div>
                 </a>
