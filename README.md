@@ -1,70 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokemon Trainer App
 
-## The app is currently host on http://localhost:3000/Home and the main page is at http://localhost:3000/Login
+## The app is currently host on <https://poke-csc309-app.herokuapp.com/>
 
-## Available Scripts
+### __Preface__
 
-In the project directory, you can run:
+We have previously created 3 accounts:
 
-### `npm start`
+Username | Password
+--------|--------
+user1 | user1
+user2 | user2
+admin | admin
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### __Login / Signup__
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+There are two user accounts and one admin account, you could use these accounts to login to this web-game. Also, you can always sign up to create a new account. Especially, the admin account will have a different function bar than the user account. Once login, you are able to see your balance, username, menu and profile. But, for the admin, you have a button called "VIEW ALL USER", which you could use to check all the user status.
 
-### `npm test`
+### __User__
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the _menu_, you are able to go to different sites, such as _store_, your _profile_, and _search_ other player
 
-### `npm run build`
+* In _store_: you can see different kinds of Pokemon to buy, and you could move your mouse to the pokemon picture, the pokemon will be selected and highlighted. If you click the pokemon, you will go into a site with more information about this pokemon, and be able to buy it. Once you bought the pokemon, you can see your pokemon in your profile.  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* In _profile_: You can click “get to your collection” to go into the _profile_ site. Once in, you can see all your collections with its name, id, level as well as the button “detail”, which brings you into the pokemon page. More, you could also see your personal information, and edit it by clicking the “change” button. Once you click “change”, you will jump into another page containing an empty information list. Simply only fill in the info you want to change, leave the rest blank, and click “submit”. Then, your personal info will be updated and ready to go.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* In _search_: you could search any existing user, and be able to check out their profile as well as see all their collections. If you click on the “detail” button of another user’s pokemon, you could help the other user to feed the pokemon. Definitely a great design, if your friends run out of money.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### __Admin__
 
-### `npm run eject`
+After logging in as an admin, you can click on the "_VIEW ALL USER_” button, and you will be directed to the manager page. At this page, you could change the data (all the information) of the user or delete the user. Also, you could even change a pokemon data, if you click the profile to view a distinct user.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* To modify user information, simply click on the “_Modify_” button. This will bring you to a new page where you can change all the personal information of this user and you can assign a title to it (Leave it blank for any unchanged information).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* To delete the user, just click on the “_Delete_” button.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* To modify any of the user’s pokemon, click on the “_Profile_” button. This will bring to the admin version of the user's profile. It allows you to again modify any of their pokemon’s attributes and delete them. Click on the “_Modify_” button will bring you to a new page where you can do all the modification. (Leave it blank for any unchanged information) You can remove a user's pokemon by clicking the “_delete_” button.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### __Pokemon Interact Page__
 
-## Learn More
+At the Profile page, you can select Pokemon to play with by clicking the DETAIL button on the Pokemon list. That will bring you to the interactive Pokemon page. You can earn money by playing with your Pokemon, you can level up your Pokemon to get even more money. Do remember to feed them when they are low in satiety and train them to obtain a massive amount of exp. As the level goes up, your Pokemon requires more experience and food to level up, however, they produce more money when the level is high. You can not play with your Pokemon when they are not lonely, or train them when they are hungry. Feeding your Pokemon will increase their satiety and when they are full you can heal them by keeping feeding, and the last, Pokemon gets a little experience when you feed them. Last but not least, some of the Pokemon would evolve when they reach a certain level. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* You can only _play_ with your Pokemon when loneliness is greater than 1. It will reduce loneliness of your Pokemon by 5, and reduce satiety by 2. It will produce 5 * (Pokemon’s level + 1) credits.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* You can only _train_ your Pokemon when they have more than 5 satiety, they  will gain 50 experience and cost 5 credits. Also, your Pokemon’s loneliness will increase by 20.
 
-### Code Splitting
+* You can always _feed_ your Pokemon when you have money. It costs 1 credits to feed them and they will gain 1 unit of satiety. When the Pokemon is full, it will heal for 1 hp. If the Pokemon is healthy and full, every time you feed them increase their experience by 1.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* When Pokemon levels up, their max satiety, experience, hp will double, however, it will produce more money when you play with it.
+Trainer should train one of their Pokemon first in order to make more money. Feed them, train them and play with them.

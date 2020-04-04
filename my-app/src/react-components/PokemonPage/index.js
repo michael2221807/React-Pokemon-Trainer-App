@@ -148,65 +148,69 @@ class PokemonPage extends React.Component {
 		const MaxExperience = pokemon[0].MaxExperience
 		const lonliness = pokemon[0].lonliness
 
-		if ((Experience + 50) < MaxExperience && (Satiety - 5) > 0) {
-			pokemon[0].Experience += 50
-			pokemon[0].Satiety -= 5
-			pokemon[0].sprite = 2
-			pokemon[0].lonliness += 20
-			currentUser[0].money -= 5
-			currentUser[0].pokemon.map(poke => {
-				if (poke.isTarget) {
-					poke = pokemon[0]
+		if (currentUser[0].money > 5) {
+			if ((Experience + 50) < MaxExperience && (Satiety - 5) > 0) {
+				pokemon[0].Experience += 50
+				pokemon[0].Satiety -= 5
+				pokemon[0].sprite = 2
+				pokemon[0].lonliness += 20
+				currentUser[0].money -= 5
+				currentUser[0].pokemon.map(poke => {
+					if (poke.isTarget) {
+						poke = pokemon[0]
+					}
+				})
+				this.setState({
+					currentUser: currentUser,
+					pokemon: pokemon
+				})
+
+				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
+
+				setTimeout(function(){
+					this.spriteChange(1)
+				}.bind(this), 2500);
+
+			} else if ((Experience + 50) >= MaxExperience && (Satiety - 5) > 0) {
+				pokemon[0].level += 1
+				pokemon[0].Experience = 0
+				pokemon[0].MaxExperience *= 2
+				pokemon[0].MaxHP *= 2
+				pokemon[0].MaxSatiety *= 2
+				pokemon[0].sprite = 2
+				pokemon[0].lonliness += 20
+				currentUser[0].money -= 5
+
+				if (pokemon[0].level === 10) {
+					if (pokemon[0].pokename === "Pikachu"){
+						pokemon[0].pokename = "Raichu"
+						window.alert("Pikachu has evolved into Raichu!")
+					}
+					if (pokemon[0].pokename === "Charmander") {
+						pokemon[0].pokename = "Charmeleon"
+						window.alert("Charmander has evolved into Charmeleon!")
+					}
 				}
-			})
-			this.setState({
-				currentUser: currentUser,
-				pokemon: pokemon
-			})
 
-			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
-			setTimeout(function(){
-				this.spriteChange(1)
-			}.bind(this), 2500);
+				currentUser[0].pokemon.map(poke => {
+					if (poke.isTarget) {
+						poke = pokemon[0]
+					}
+				})
+				this.setState({
+					currentUser: currentUser,
+					pokemon: pokemon
+				})
 
-		} else if ((Experience + 50) >= MaxExperience && (Satiety - 5) > 0) {
-			pokemon[0].level += 1
-			pokemon[0].Experience = 0
-			pokemon[0].MaxExperience *= 2
-			pokemon[0].MaxHP *= 2
-			pokemon[0].MaxSatiety *= 2
-			pokemon[0].sprite = 2
-			pokemon[0].lonliness += 20
-			currentUser[0].money -= 5
+				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
-			if (pokemon[0].level === 10) {
-				if (pokemon[0].pokename === "Pikachu"){
-					pokemon[0].pokename = "Raichu"
-					window.alert("Pikachu has evolved into Raichu!")
-				}
-				if (pokemon[0].pokename === "Charmander") {
-					pokemon[0].pokename = "Charmeleon"
-					window.alert("Charmander has evolved into Charmeleon!")
-				}
+				setTimeout(function(){
+					this.spriteChange(1)
+				}.bind(this), 2500);
 			}
-
-
-			currentUser[0].pokemon.map(poke => {
-				if (poke.isTarget) {
-					poke = pokemon[0]
-				}
-			})
-			this.setState({
-				currentUser: currentUser,
-				pokemon: pokemon
-			})
-
-			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
-
-			setTimeout(function(){
-				this.spriteChange(1)
-			}.bind(this), 2500);
+		}else {
+			window.alert("You don't have enough money!")
 		}
 
 	};
@@ -256,73 +260,52 @@ class PokemonPage extends React.Component {
 		const Experience = pokemon[0].Experience
 		const MaxExperience = pokemon[0].MaxExperience
 
+		if (currentUser[0].money > 1) {
+			if (Satiety < MaxSatiety) {
+				pokemon[0].Satiety += 1
+				pokemon[0].sprite = 2
+				currentUser[0].money -= 1
+				currentUser[0].pokemon.map(poke => {
+					if (poke.isTarget) {
+						poke = pokemon[0]
+					}
+				})
 
-		if (Satiety < MaxSatiety) {
-			pokemon[0].Satiety += 1
-			pokemon[0].sprite = 2
-			currentUser[0].money -= 1
-			currentUser[0].pokemon.map(poke => {
-				if (poke.isTarget) {
-					poke = pokemon[0]
-				}
-			})
+				this.setState({
+					currentUser: currentUser,
+					pokemon: pokemon
+				})
 
-			this.setState({
-				currentUser: currentUser,
-				pokemon: pokemon
-			})
+				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
-			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
+				setTimeout(function(){
+					this.spriteChange(1)
+				}.bind(this), 2500);
 
-			setTimeout(function(){
-				this.spriteChange(1)
-			}.bind(this), 2500);
+			} else if (Satiety >= MaxSatiety && HP < MaxHP) {
+				pokemon[0].HP += 1
+				pokemon[0].sprite = 2
+				currentUser[0].money -= 1
+				currentUser[0].pokemon.map(poke => {
+					if (poke.isTarget) {
+						poke = pokemon[0]
+					}
+				})
 
-		} else if (Satiety >= MaxSatiety && HP < MaxHP) {
-			pokemon[0].HP += 1
-			pokemon[0].sprite = 2
-			currentUser[0].money -= 1
-			currentUser[0].pokemon.map(poke => {
-				if (poke.isTarget) {
-					poke = pokemon[0]
-				}
-			})
+				this.setState({
+					currentUser: currentUser,
+					pokemon: pokemon
+				})
 
-			this.setState({
-				currentUser: currentUser,
-				pokemon: pokemon
-			})
+				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
 
-			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
-
-			setTimeout(function(){
-				this.spriteChange(1)
-			}.bind(this), 2500);
+				setTimeout(function(){
+					this.spriteChange(1)
+				}.bind(this), 2500);
 
 
-		} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness > 0) {
-			pokemon[0].lonliness -= 1
-			pokemon[0].sprite = 2
-			currentUser[0].money -= 1
-			currentUser[0].pokemon.map(poke => {
-				if (poke.isTarget) {
-					poke = pokemon[0]
-				}
-			})
-			this.setState({
-				currentUser: currentUser,
-				pokemon: pokemon
-			})
-
-			api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
-
-			setTimeout(function(){
-				this.spriteChange(1)
-			}.bind(this), 2500);
-
-		} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness <= 0) {
-			if (Experience < MaxExperience) {
-				pokemon[0].Experience += 1
+			} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness > 0) {
+				pokemon[0].lonliness -= 1
 				pokemon[0].sprite = 2
 				currentUser[0].money -= 1
 				currentUser[0].pokemon.map(poke => {
@@ -341,46 +324,71 @@ class PokemonPage extends React.Component {
 					this.spriteChange(1)
 				}.bind(this), 2500);
 
-			} else if (Experience >= MaxExperience) {
-				pokemon[0].level += 1
-				pokemon[0].Experience = 0
-				pokemon[0].MaxExperience *= 2
-				pokemon[0].MaxHP *= 2
-				pokemon[0].MaxSatiety *= 2
-				pokemon[0].sprite = 2
-				currentUser[0].money -= 1
+			} else if (Satiety >= MaxSatiety && HP >= MaxHP && lonliness <= 0) {
+				if (Experience < MaxExperience) {
+					pokemon[0].Experience += 1
+					pokemon[0].sprite = 2
+					currentUser[0].money -= 1
+					currentUser[0].pokemon.map(poke => {
+						if (poke.isTarget) {
+							poke = pokemon[0]
+						}
+					})
+					this.setState({
+						currentUser: currentUser,
+						pokemon: pokemon
+					})
+
+					api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
+
+					setTimeout(function(){
+						this.spriteChange(1)
+					}.bind(this), 2500);
+
+				} else if (Experience >= MaxExperience) {
+					pokemon[0].level += 1
+					pokemon[0].Experience = 0
+					pokemon[0].MaxExperience *= 2
+					pokemon[0].MaxHP *= 2
+					pokemon[0].MaxSatiety *= 2
+					pokemon[0].sprite = 2
+					currentUser[0].money -= 1
 
 
-				if (pokemon[0].level === 10) {
-					if (pokemon[0].pokename === "Pikachu"){
-						pokemon[0].pokename = "Raichu"
-						window.alert("Pikachu has evolved into Raichu!")
+					if (pokemon[0].level === 10) {
+						if (pokemon[0].pokename === "Pikachu"){
+							pokemon[0].pokename = "Raichu"
+							window.alert("Pikachu has evolved into Raichu!")
+						}
+						if (pokemon[0].pokename === "Charmander") {
+							pokemon[0].pokename = "Charmeleon"
+							window.alert("Charmander has evolved into Charmeleon!")
+						}
 					}
-					if (pokemon[0].pokename === "Charmander") {
-						pokemon[0].pokename = "Charmeleon"
-						window.alert("Charmander has evolved into Charmeleon!")
-					}
+
+
+
+					currentUser[0].pokemon.map(poke => {
+						if (poke.isTarget) {
+							poke = pokemon[0]
+						}
+					})
+					this.setState({
+						currentUser: currentUser,
+						pokemons: pokemon
+					})
+
+					api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
+
+					setTimeout(function(){
+						this.spriteChange(1)
+					}.bind(this), 2500);
 				}
-
-
-
-				currentUser[0].pokemon.map(poke => {
-					if (poke.isTarget) {
-						poke = pokemon[0]
-					}
-				})
-				this.setState({
-					currentUser: currentUser,
-					pokemons: pokemon
-				})
-
-				api.updateUserById(this.state.currentUser[0].id, this.state.currentUser[0])
-
-				setTimeout(function(){
-					this.spriteChange(1)
-				}.bind(this), 2500);
 			}
+		}else {
+			window.alert("You don't have enough money!")
 		}
+
 	};
 
 
