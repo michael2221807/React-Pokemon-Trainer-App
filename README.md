@@ -22,9 +22,9 @@ In the _menu_, you are able to go to different sites, such as _store_, your _pro
 
 * In _store_: you can see different kinds of Pokemon to buy, and you could move your mouse to the pokemon picture, the pokemon will be selected and highlighted. If you click the pokemon, you will go into a site with more information about this pokemon, and be able to buy it. Once you bought the pokemon, you can see your pokemon in your profile.  
 
-* In _profile_: You can click “get to your collection” to go into the _profile_ site. Once in, you can see all your collections with its name, id, level as well as the button “detail”, which brings you into the pokemon page. More, you could also see your personal information, and edit it by clicking the “change” button. Once you click “change”, you will jump into another page containing an empty information list. Simply only fill in the info you want to change, leave the rest blank, and click “submit”. Then, your personal info will be updated and ready to go.
+* In _profile_: You can click “get to your collection” to go into the _profile_ site. Once in, you can see all your collections with its name, id, level as well as the button “detail”, which brings you into the pokemon page. More, you could also see your personal information, and edit it by clicking the “change” button. Once you click “change”, you will jump into another page containing an empty information list. Simply fill in the info you want to change, leave the rest blank, and click “submit”. Then, your personal info will be updated and ready to go.
 
-* In _search_: you could search any existing user, and be able to check out their profile as well as see all their collections. If you click on the “detail” button of another user’s pokemon, you could help the other user to feed the pokemon. Definitely a great design, if your friends run out of money.  
+* In _search_: you could search any existing user, and be able to check out their profile as well as see all their collections. If you click on the “detail” button of another user’s pokemon, you could help the other user to feed the pokemon and it won't cost your money. Definitely a great design, if your friends run out of money.  
 
 ### __Admin__
 
