@@ -1,6 +1,6 @@
 const MongoClient  = require('mongodb')
 
-const uri = "mongodb+srv://michael2221807@gmail.com:Chl2221807222@cluster0.pcigr.mongodb.net/pokemondb?retryWrites=true&w=majority";
+const uri = "mongodb+srv://<username>:<password>@cluster0.pcigr.mongodb.net/pokemondb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
